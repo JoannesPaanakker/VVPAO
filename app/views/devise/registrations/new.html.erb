@@ -26,6 +26,8 @@
           <%= f.input :postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: true  %>
           <%= f.input :city, label: "Stad", input_html: { class: 'input-plaats' }, required: true  %>
           <%= f.input :phonenumber, label: "Tel. nummer", required: true  %>
+          <%= f.input :newregistrations, label: "Neem nieuwe patienten aan", required: true  %>
+          <%= f.input :waitingperiod, label: "Tel. nummer", required: false%>
           <!-- <div class="flex">
           <span class="gob">Geboortedatum:</span>
           <%#= f.input :dob, start_year: Date.today.year - 80,

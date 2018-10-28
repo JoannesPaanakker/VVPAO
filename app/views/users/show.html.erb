@@ -15,6 +15,27 @@
               Niet Openbaar (alleen zichtbaar voor leden)
             <% end %>
           </div>
+          <div class="knop-small" data-toggle="modal" data-target="#personalPublic">
+            pas aan
+          </div>
+          <!-- Edit modal -->
+          <div class="modal" id="personalPublic" tabindex="-1" role="dialog" aria-labelledby="personalPublic" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'partials/switch-personal-public' %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="text-box-l">
             <%= @user.street %> <%= @user.streetnumber %> <%= @user.number_extension %><br>
             <%= @user.postalcode %> <%= @user.city %><br>
@@ -59,18 +80,37 @@
               Niet Openbaar (alleen zichtbaar voor leden)
             <% end %>
           </div>
+          <div class="knop-small" data-toggle="modal" data-target="#practicePublic">
+            pas aan
+          </div>
+          <!-- Edit modal -->
+          <div class="modal" id="practicePublic" tabindex="-1" role="dialog" aria-labelledby="practicePublic" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'partials/switch-practice-public' %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="text-box-l">
             Expertise: <%= @user.expertise.name %><br>
-            <br>
             Patientengroep: <%= @user.targetaudience.name %><br>
-            Website: <%= link_to @user.website, @user.website %> <br>
             <%= @user.practice_name %><br>
             <%= @user.practice_street %> <%= @user.practice_streetnumber %> <%= @user.practice_number_extension %><br>
             <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
             <br>
-            <%= @user.practice_email %> <br>
+            Email: <%= @user.practice_email %> <br>
+            Website: <%= link_to @user.website, @user.website %> <br>
             Tel. nr. <%= @user.practice_phonenumber %><br>
-            <br>
             <% if @user.newregistrations %>
               Wachttijd voor nieuwe patienten:  <%= @user.waitingperiod %> <br>
             <% else %>

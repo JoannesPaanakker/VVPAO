@@ -55,29 +55,31 @@ organiser:
               <div class="news-item-title">
                 <%= ni.title  %>
               </div>
-          <div class="knop" data-toggle="modal" data-target="#editNewsitem">
-            Edit
-          </div>
-          <!-- Edit modal -->
-          <div class="modal fade" id="editNewsitem" tabindex="-1" role="dialog" aria-labelledby="editNewsitemLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="editNewsitemLabel">Pas persoonlijke gegevens aan</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+              <% if user_signed_in? && current_user.admin %>
+                <div class="knop-small" data-toggle="modal" data-target="#editNewsitem">
+                  Pas aan
                 </div>
-                <div class="modal-body">
-                  <% @newsitem = ni %>
-                  <%= render 'partials/edit-newsitem' %>
+                <!-- Edit modal -->
+                <div class="modal" id="editNewsitem" tabindex="-1" role="dialog" aria-labelledby="editNewsitemLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editNewsitemLabel">Pas newsitem aan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <% @newsitem = ni %>
+                        <%= render 'partials/edit-newsitem' %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="knop" data-dismiss="modal">annuleer</button>
-                </div>
-              </div>
-            </div>
-          </div>
+              <% end %>
             </div>
           <% end %>
       </div>

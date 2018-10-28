@@ -4,14 +4,16 @@
     <%= f.association :expertise, label: "Specifieke deskundigheid", required: false  %>
     <%= f.association :targetaudience, label: "Patientengroep", required: false  %>
     <%= f.input :practice_name, label: "Naam praktijk", required: false  %>
-    <%= f.input :practice_street, label: "Straat praktijk", input_html: { class: 'input-straat' }, required: false  %>
+    <%= f.input :practice_street, label: "Straat praktijk", input_html: { class: 'input-straat' }, required: false %>
     <%= f.input :practice_streetnumber, label: "Huisnr.", input_html: { class: 'input-number' }, required: false  %>
     <%= f.input :practice_number_extension, label: "toevoeging", input_html: { class: 'input-number' }, required: false  %>
     <%= f.input :practice_postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: false  %>
     <%= f.input :practice_city, label: "Stad", input_html: { class: 'input-plaats' }, required: false  %>
     <%= f.input :practice_email, label: "emailadres praktijk", required: false  %>
+    <%= f.input :website, required: false, placeholder: "http(s)://domeinnaam.nl"  %>
     <%= f.input :practice_phonenumber, label: "Tel. Nummer praktijk", required: false  %>
-    <%= f.input :website, required: false  %>
+    <%= f.input :newregistrations, label: "Neem nieuwe patienten aan", required: false  %>
+    <%= f.input :waitingperiod, label: "Wachttijd", required: false%>
   </div>
 
   <div class="form-actions">
