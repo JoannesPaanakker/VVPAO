@@ -6,7 +6,7 @@ gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.1.5'
+gem 'rails', '5.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -16,6 +16,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'bootsnap', require: false
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem "comfortable_mexican_sofa", "~> 2.0.0"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

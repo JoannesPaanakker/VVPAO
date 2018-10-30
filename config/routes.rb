@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  # root to: 'comfy/cms/content#show'
   get 'informatie', to: 'pages#informatie'
   get 'nascholing', to: 'pages#nascholing'
   get 'psychiaters', to: 'pages#psychiaters'
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get '/signout', to: 'devise/sessions#destroy', as: :signout
   # end
+  comfy_route :cms_admin, path: "/admin"
+  # Ensure that this route is defined last
+  comfy_route :cms, path: "/"
 end
 
 

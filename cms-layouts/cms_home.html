@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-xs-12 col-md-6 home-box">
+      <div class="home-inner-box">
+        <div class="inner-box-large">
+          <div class="header1">
+            {{ cms:text header1}}
+          </div>
+          <div class="text-box-l">
+            {{ cms:wysiwyg box1}}
+          </div>
+          <%= link_to "meer info", informatie_path, class: "knop knop-linksonder-home-inner-box" %>
+        <!-- <div class="knop knop-linksonder">meer</div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 home-box">
+      <div class="home-inner-box">
+        <div class="inner-box" style="position: relative;">
+          <div class="header2">
+            {{ cms:text header2}}
+          </div>
+          <div class="text-box-m">
+            {{ cms:textarea box2}}
+          </div>
+          <%= link_to "Vind psychiater", psychiaters_path, class: "knop knop-linksonder-home-inner-box" %>
+        </div>
+        <div class="inner-box" style="position: relative;">
+          <div class="header2">
+            {{ cms:text header3}}
+          </div>
+          <div class="text-box-m">
+            {{ cms:textarea box3}}
+          </div>
+          {{ cms:helper link_to, "lidmaatschap", lidmaatschap, class: "knop knop-linksonder-home-inner-box"}}
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 home-box">
+      <div class="home-inner-box">
+        <div class="inner-box">
+          <div class="header2">
+            {{ cms:text header4}}
+          </div>
+        <ul>
+          {{ cms:partial "partials/trainings" }}
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 home-box">
+      <div class="home-inner-box">
+        <div class="header2">
+            {{ cms:text header5}}
+        </div>
+          <% @newsitems.each do |ni| %>
+            <div class="news-item-index">
+
+                <%= image_tag ni.imagefilename1, class: "news-item-image"   %>
+
+              <div class="news-item-title">
+                <%= ni.title  %>
+              </div>
+              <% if user_signed_in? && current_user.admin %>
+                <div class="knop-small" data-toggle="modal" data-target="#editNewsitem">
+                  Pas aan
+                </div>
+                <!-- Edit modal -->
+                <div class="modal" id="editNewsitem" tabindex="-1" role="dialog" aria-labelledby="editNewsitemLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editNewsitemLabel">Pas newsitem aan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <% @newsitem = ni %>
+                        <%= render 'partials/edit-newsitem' %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
