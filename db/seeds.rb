@@ -132,7 +132,6 @@ expertises = Expertise.create([
 
 users = User.create([
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
@@ -168,7 +167,6 @@ users = User.create([
     targetaudience_id: targetaudiences[2].id
   },
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
@@ -204,7 +202,6 @@ users = User.create([
     targetaudience_id: targetaudiences[1].id
   },
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
@@ -240,7 +237,6 @@ users = User.create([
     targetaudience_id: targetaudiences[3].id
   },
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
@@ -276,7 +272,6 @@ users = User.create([
     targetaudience_id: targetaudiences[2].id
   },
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
@@ -312,7 +307,6 @@ users = User.create([
     targetaudience_id: targetaudiences[1].id
   },
   {
-    tussenvoegsel: '',
     big: '',
     contract: true,
     buddy: '',
