@@ -19,6 +19,5 @@ class AddItemsToUser < ActiveRecord::Migration[5.1]
     add_column :users, :practice_email, :string
     add_column :users, :practice_phonenumber, :string
     add_column :users, :website, :string
-    add_column :users, :contract, :boolean
   end
 end
