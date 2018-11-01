@@ -1,7 +1,6 @@
 class AddItemsToUser < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :first_name, :string
-    add_column :users, :tussenvoegsel, :string
     add_column :users, :last_name, :string
     add_column :users, :initials, :string
     add_column :users, :street, :string
@@ -11,7 +10,6 @@ class AddItemsToUser < ActiveRecord::Migration[5.1]
     add_column :users, :city, :string
     add_column :users, :phonenumber, :string
     add_column :users, :dob, :date
-    add_column :users, :big, :string
     add_column :users, :practice_name, :string
     add_column :users, :practice_street, :string
     add_column :users, :practice_streetnumber, :integer
@@ -22,7 +20,5 @@ class AddItemsToUser < ActiveRecord::Migration[5.1]
     add_column :users, :practice_phonenumber, :string
     add_column :users, :website, :string
     add_column :users, :contract, :boolean
-    add_column :users, :buddy, :boolean
-    add_column :users, :training_suggestion, :text
   end
 end

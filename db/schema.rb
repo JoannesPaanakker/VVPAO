@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_134340) do
+ActiveRecord::Schema.define(version: 2018_11_01_100539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -245,7 +245,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_134340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
-    t.string "tussenvoegsel"
     t.string "last_name"
     t.string "initials"
     t.string "street"
@@ -255,7 +254,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_134340) do
     t.string "city"
     t.string "phonenumber"
     t.date "dob"
-    t.string "big"
     t.string "practice_name"
     t.string "practice_street"
     t.integer "practice_streetnumber"
@@ -266,8 +264,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_134340) do
     t.string "practice_phonenumber"
     t.string "website"
     t.boolean "contract"
-    t.boolean "buddy"
-    t.text "training_suggestion"
     t.boolean "admin", default: false
     t.boolean "member", default: false
     t.string "profile_image_filename"
@@ -277,6 +273,10 @@ ActiveRecord::Schema.define(version: 2018_10_29_134340) do
     t.bigint "targetaudience_id"
     t.boolean "personal_data_public", default: false
     t.boolean "practice_data_public", default: true
+    t.string "tussenvoegsel"
+    t.string "big"
+    t.boolean "buddy"
+    t.string "training_suggestion"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["expertise_id"], name: "index_users_on_expertise_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

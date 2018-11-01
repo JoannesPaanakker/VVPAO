@@ -21,3 +21,13 @@ rails g migration AddTextToListitem text:references
 rails g migration AddUserToBestuur user:references
 
 rails g migration AddCategoryToLink category:references
+
+rails g migration AddExtrasToUser tusssenvoegsel:string big:string buddy:boolean training_suggestion:string personal_data_public:boolean practice_data_public:boolean
+
+
+
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
