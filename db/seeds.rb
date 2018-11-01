@@ -132,6 +132,13 @@ expertises = Expertise.create([
 
 users = User.create([
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'voorzitter@vvpao.amsterdam',
     first_name: 'Celestine',
     last_name: 'Roose',
@@ -161,6 +168,13 @@ users = User.create([
     targetaudience_id: targetaudiences[2].id
   },
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'bestuurslidjokhoe@vvpao.amsterdam',
     first_name: 'Roshad',
     last_name: 'Jokhoe',
@@ -190,6 +204,13 @@ users = User.create([
     targetaudience_id: targetaudiences[1].id
   },
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'penningmeester@vvpao.amsterdam',
     first_name: 'Kees',
     last_name: 'de Vries',
@@ -219,6 +240,13 @@ users = User.create([
     targetaudience_id: targetaudiences[3].id
   },
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'admin@vvpao.ams',
     first_name: 'Jan',
     last_name: 'Admin',
@@ -248,6 +276,13 @@ users = User.create([
     targetaudience_id: targetaudiences[2].id
   },
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'user@vvpao.ams',
     first_name: 'Anja',
     last_name: 'User',
@@ -277,6 +312,13 @@ users = User.create([
     targetaudience_id: targetaudiences[1].id
   },
   {
+    tussenvoegsel: '',
+    big: '',
+    contract: true,
+    buddy: '',
+    training_suggestion: "",
+    personal_data_public: false,
+    practice_data_public: true,
     email: 'Piet@elders.eld',
     first_name: 'Piet',
     last_name: 'Elders',
