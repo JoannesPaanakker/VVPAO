@@ -1,11 +1,11 @@
 <div class="page-header header1">
   {{ cms:text header}}
 </div>
-<div class="container-fluid">
+<div class="container-fluid sub-page">
   <div class="row-fluid">
     <div class="col-xs-12 col-sm-10 col-md-8 page-box">
       {{ cms:wysiwyg text1 }}
-      {{ cms:helper link_to, "home", "/", class: "knop knop-linksonder-home-inner-box"}}
     </div>
   </div>
+  {{ cms:partial "partials/home-button" }}
 </div>
