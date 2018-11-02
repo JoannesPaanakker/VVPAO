@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'nieuws', to: 'pages#nieuws'
   get 'contact', to: 'pages#contact'
   get 'apply', to: 'pages#apply'
+  get 'dashboard', to: 'admin#dashboard'
 
   resources :users, only: [:show, :index, :update]
   resources :newsitems, only: [:create, :update, :delete]

@@ -49,9 +49,4 @@ class PagesController < ApplicationController
     @texts = Text.all
     @listitems = Listitem.all
   end
-
-  def apply
-    @texts = Text.all
-    @listitems = Listitem.all
-  end
 end

@@ -1,0 +1,47 @@
+<div class="page-header header1">
+  Dashboard
+</div>
+<div class="container-fluid sub-page">
+  <div class="row-fluid">
+    <div class="col-xs-12 col-sm-10 col-md-8 page-box">
+      <% if current_user.admin  %>
+        <div id="index" class="header1">
+          Aspirant leden VVPAO
+        </div>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div>
+              <ul>
+              <% @newusers.each do |u| %>
+                <li>
+                  <%= u.first_name %> <%= u.tussenvoegsel %> <%= u.last_name  %>
+                  <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="index" class="header1">
+          leden VVPAO
+        </div>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div>
+              <ul>
+              <% @members.each do |u| %>
+                <li>
+                  <%= u.first_name %> <%= u.tussenvoegsel %> <%= u.last_name  %>
+                  <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% else %>
+       Niet ge-autoriseerd!
+      <% end %>
+    </div>
+  </div>
+</div>
