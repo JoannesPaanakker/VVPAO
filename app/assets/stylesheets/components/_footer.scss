@@ -5,8 +5,18 @@ html {
 body {
   position: relative;
   margin: 0;
-  padding-bottom: 160px;
   min-height: 100%;
+}
+
+@media screen and (min-width: 846px) {
+  body {
+    padding-bottom: 160px;
+  }
+}
+@media screen and (max-width: 845px) {
+  body {
+    padding-bottom: 300px;
+  }
 }
 
 .footer {
@@ -14,11 +24,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 25px 40px 10px 35px;
   background: $vvpao2;
   transition: all 0.3s ease;
-  display: flex;
-  justify-content: space-between;
 }
 
 .footer-text-blok {
@@ -33,7 +40,12 @@ a .info-header-foot-text {
   text-decoration: underline;
 }
 
-.footer-list {
+.footer-mobile {
   padding: 15px 0px 15px 20px;
-  background: $vvpao2;
+}
+
+.footer-browser {
+  padding: 25px 40px 10px 35px;
+  display: flex;
+  justify-content: space-between;
 }
