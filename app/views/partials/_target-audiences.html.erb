@@ -1,0 +1,42 @@
+<div class="modal" id="targetaudiences" tabindex="-1" role="dialog" aria-labelledby="targetaudiences" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Lijst van Patientengroepen
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@targetaudience, url: targetaudiences_path, html: { method: :post }, wrapper: :horizontal_form) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs" style="display: flex">
+            <%= f.input :name, placeholder: "Nieuwe patientengroep", label: false, input_html: { class: 'expertise-input' } %>
+            <%= f.button :submit, "Bewaar", class: "knop" %>
+          </div>
+
+          <div class="form-actions">
+          </div>
+        <% end %>
+        <div class="lijst">
+          <table>
+            <% @targetaudiences.each do |t| %>
+              <tr class="userlist">
+                <td>
+                  <%= t.name %>
+                </td>
+                <td>
+                  <%= link_to "verwijder", targetaudience_path(t.id), data: { confirm: "verwijder patientengroep #{t.name}?" }, method: :delete, class: "knop-small" %></p>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+      </div>
+    </div>
+  </div>
+</div>

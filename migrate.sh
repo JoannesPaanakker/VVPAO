@@ -1,4 +1,4 @@
-rails g migration AddItemsToUser first_name:string last_name:String initials:string street:string streetnumber:integer number_extension:string postalcode:string city:string country:string phonenumber:string practice_name:string practice_street:string practice_streetnumber:integer practice_number_extension:string practice_postalcode:string practice_city:string practice_country:string practice_email:string practice_phonenumber website:string
+rails g migration AddItemsToUser first_name:string last_name:String initials:string street:string streetnumber:integer postalcode:string city:string country:string phonenumber:string practice_name:string practice_street:string practice_streetnumber:string practice_postalcode:string practice_city:string practice_country:string practice_email:string practice_phonenumber website:string
 rails g migration AddImageToUser image:filename
 
 

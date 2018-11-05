@@ -11,17 +11,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user == current_user
+    if @user == current_user || current_user.admin
       @user.update!(user_params)
     else
       flash[:alert] = "Unauthorised action"
     end
-    redirect_to user_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :tussenvoegsel, :last_name, :initials, :street, :streetnumber, :number_extension, :postalcode, :city, :phonenumber, :dob, :big, :practice_name, :practice_street, :practice_streetnumber, :practice_number_extension, :practice_postalcode, :practice_city, :practice_email, :practice_phonenumber, :website, :contract, :buddy, :training_suggestion, :expertise_id, :waitingperiod, :newregistrations, :personal_data_public, :practice_data_public, :targetaudience_id, :expertise_id)
+    params.require(:user).permit(:email, :first_name, :tussenvoegsel, :last_name, :initials, :street, :streetnumber, :postalcode, :city, :phonenumber, :dob, :big, :practice_name, :practice_street, :practice_streetnumber, :practice_postalcode, :practice_city, :practice_email, :practice_phonenumber, :website, :contract, :buddy, :training_suggestion, :expertise_id, :waitingperiod, :newregistrations, :personal_data_public, :practice_data_public, :targetaudience_id, :expertise_id, :member)
   end
 end

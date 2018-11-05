@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid sub-page">
   <div class="row-fluid">
-    <div class="col-xs-12 col-sm-10 col-md-8 page-box">
+    <div class="col-xs-12 page-box">
       <% if current_user.admin  %>
         <div id="index" class="header1">
           Aspirant leden VVPAO
@@ -11,14 +11,41 @@
         <div class="container-fluid">
           <div class="row-fluid">
             <div>
-              <ul>
+              <table>
+                <tr class="userlist">
+                  <th>Naam</th>
+                  <th>Email</th>
+                  <th>Telefoonnummer</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
               <% @newusers.each do |u| %>
-                <li>
-                  <%= u.first_name %> <%= u.tussenvoegsel %> <%= u.last_name  %>
-                  <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
-                </li>
+                <tr class="userlist">
+                  <td>
+                    <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
+                  </td>
+                  <td>
+                    <%= u.email %>
+                  </td>
+                  <td>
+                    <%= u.phonenumber %>
+                  </td>
+                  <td>
+                    <div class="div-knop-small">
+                    <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="knop-small" data-toggle="modal" data-target="#activate">
+                      activeer
+                    </div>
+                    <% @user = u %>
+                    <%= render 'partials/activate-user' %>
+                  </td>
+                </tr>
               <% end %>
-              </ul>
+              </table>
             </div>
           </div>
         </div>
@@ -28,15 +55,60 @@
         <div class="container-fluid">
           <div class="row-fluid">
             <div>
-              <ul>
+              <table>
+                <tr class="userlist">
+                  <th>Naam</th>
+                  <th>Email</th>
+                  <th>Telefoonnummer</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
               <% @members.each do |u| %>
-                <li>
-                  <%= u.first_name %> <%= u.tussenvoegsel %> <%= u.last_name  %>
-                  <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
-                </li>
+                <tr class="userlist">
+                  <td>
+                    <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
+                  </td>
+                  <td>
+                    <%= u.email %>
+                  </td>
+                  <td>
+                    <%= u.phonenumber %>
+                  </td>
+                  <td>
+                    <div class="div-knop-small">
+                    <%= link_to 'details', user_path(u.id), class: 'knop-small' %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="knop-small" data-toggle="modal" data-target="#de-activate">
+                      disable
+                    </div>
+                    <% @user = u %>
+                    <%= render 'partials/de-activate-user' %>
+                  </td>
+                </tr>
               <% end %>
-              </ul>
+              </table>
             </div>
+          </div>
+        </div>
+        <div id="index" class="header1">
+          lijsten aanpassen
+        </div>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="knop" data-toggle="modal" data-target="#expertises">
+              Expertises
+            </div>
+            <%= render 'partials/expertises'  %>
+          </div>
+          <br>
+          <div class="row-fluid">
+            <div class="knop" data-toggle="modal" data-target="#targetaudiences">
+              Patientengroepen
+            </div>
+            <%= render 'partials/target-audiences' %>
           </div>
         </div>
       <% else %>

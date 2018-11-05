@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'admin#dashboard'
 
   resources :users, only: [:show, :index, :update]
-  resources :newsitems, only: [:create, :update, :delete]
+  resources :newsitems, only: [:create, :update, :destroy]
+  resources :expertises, only: [:create, :destroy]
+  resources :targetaudiences, only: [:create, :destroy]
 
   # devise_scope :user do
   #   get '/signout', to: 'devise/sessions#destroy', as: :signout

@@ -15,9 +15,11 @@
               Niet Openbaar (alleen zichtbaar voor leden)
             <% end %>
           </div>
-          <div class="knop-small" data-toggle="modal" data-target="#personalPublic">
-            pas aan
-          </div>
+          <% if @user == current_user %>
+            <div class="knop-small" data-toggle="modal" data-target="#personalPublic">
+              pas aan
+            </div>
+          <% end %>
           <!-- Edit modal -->
           <div class="modal" id="personalPublic" tabindex="-1" role="dialog" aria-labelledby="personalPublic" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -37,7 +39,7 @@
             </div>
           </div>
           <div class="text-box-l">
-            <%= @user.street %> <%= @user.streetnumber %> <%= @user.number_extension %><br>
+            <%= @user.street %> <%= @user.streetnumber %><br>
             <%= @user.postalcode %> <%= @user.city %><br>
             <br>
             <%= @user.email %> <br>
@@ -80,9 +82,11 @@
               Niet Openbaar (alleen zichtbaar voor leden)
             <% end %>
           </div>
-          <div class="knop-small" data-toggle="modal" data-target="#practicePublic">
-            pas aan
-          </div>
+          <% if @user == current_user %>
+            <div class="knop-small" data-toggle="modal" data-target="#practicePublic">
+              pas aan
+            </div>
+          <% end %>
           <!-- Edit modal -->
           <div class="modal" id="practicePublic" tabindex="-1" role="dialog" aria-labelledby="practicePublic" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -105,7 +109,7 @@
             Expertise: <%= @user.expertise.name %><br>
             Patientengroep: <%= @user.targetaudience.name %><br>
             <%= @user.practice_name %><br>
-            <%= @user.practice_street %> <%= @user.practice_streetnumber %> <%= @user.practice_number_extension %><br>
+            <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
             <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
             <br>
             Email: <%= @user.practice_email %> <br>

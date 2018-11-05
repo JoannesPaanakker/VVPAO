@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_103252) do
+ActiveRecord::Schema.define(version: 2018_11_05_121836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -248,16 +248,14 @@ ActiveRecord::Schema.define(version: 2018_11_01_103252) do
     t.string "last_name"
     t.string "initials"
     t.string "street"
-    t.integer "streetnumber"
-    t.string "number_extension"
+    t.string "streetnumber"
     t.string "postalcode"
     t.string "city"
     t.string "phonenumber"
     t.date "dob"
     t.string "practice_name"
     t.string "practice_street"
-    t.integer "practice_streetnumber"
-    t.string "practice_number_extension"
+    t.string "practice_streetnumber"
     t.string "practice_postalcode"
     t.string "practice_city"
     t.string "practice_email"
