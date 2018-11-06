@@ -1,20 +1,51 @@
 <% if current_user.member  %>
   <div id="index" class="page-header header1">
     Ledenlijst VVPAO
+    <br>
+      <div class="knop" id="switchtolist">
+        andere weergave
+      </div>
+    </div>
   </div>
-  <div class="development">
-    developer info: <br />
-    <% if current_user %>
-      current_user: <%= current_user.email  %>
-      admin: <%= current_user.admin %>
-    <% else %>
-      no user logged in
-    <% end %>
+  <div class="container-fluid" id="list">
+    <div class="rowfluid">
+      <table>
+        <tr class="userlist">
+          <th>Naam</th>
+          <th>Email</th>
+          <th>Telefoonnummer</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <% @members.each do |u| %>
+          <tr class="userlist">
+            <td>
+              <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
+            </td>
+            <td>
+              <%= u.email %>
+            </td>
+            <td>
+              <%= u.phonenumber %>
+            </td>
+            <td>
+              <div class="knop-small" data-toggle="modal" data-target="#user-details">
+                details
+              </div>
+              <div class="modal" id="user-details" tabindex="-1" role="dialog" aria-labelledby="user-details" aria-hidden="true">
+                <% @user = u %>
+                <%= render 'partials/user-details' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" id="cards">
     <div class="row-fluid">
       <div class="col-xs-12 user-card-outer">
-        <% @users.each do |u| %>
+        <% @members.each do |u| %>
           <div class="user-card">
             <% if u.profile_image_filename %>
               <%= image_tag( u.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
@@ -28,7 +59,13 @@
               <%= u.email %><br>
               expertise: <%= u.expertise.name %><br>
               tel. nr. <%= u.phonenumber %>
-              <%= link_to 'details', user_path(u.id), class: 'knop-small knop-rechtsonder-user-card' %>
+              <div class="knop-small knop-rechtsonder-user-card" data-toggle="modal" data-target="#user-details2">
+                details
+              </div>
+              <div class="modal" id="user-details2" tabindex="-1" role="dialog" aria-labelledby="user-details2" aria-hidden="true">
+                <% @user = u %>
+                <%= render 'partials/user-details' %>
+              </div>
             </div>
           </div>
         <% end %>

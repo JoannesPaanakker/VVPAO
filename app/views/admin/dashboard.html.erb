@@ -10,16 +10,15 @@
         </div>
         <div class="container-fluid">
           <div class="row-fluid">
-            <div>
-              <table>
-                <tr class="userlist">
-                  <th>Naam</th>
-                  <th>Email</th>
-                  <th>Telefoonnummer</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
+            <table>
+              <tr class="userlist">
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Telefoonnummer</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
               <% @newusers.each do |u| %>
                 <tr class="userlist">
                   <td>
@@ -45,8 +44,7 @@
                   </td>
                 </tr>
               <% end %>
-              </table>
-            </div>
+            </table>
           </div>
         </div>
         <div id="index" class="header1">
@@ -54,16 +52,15 @@
         </div>
         <div class="container-fluid">
           <div class="row-fluid">
-            <div>
-              <table>
-                <tr class="userlist">
-                  <th>Naam</th>
-                  <th>Email</th>
-                  <th>Telefoonnummer</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
+            <table>
+              <tr class="userlist">
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Telefoonnummer</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
               <% @members.each do |u| %>
                 <tr class="userlist">
                   <td>
@@ -89,8 +86,7 @@
                   </td>
                 </tr>
               <% end %>
-              </table>
-            </div>
+            </table>
           </div>
         </div>
         <div id="index" class="header1">
@@ -100,15 +96,15 @@
           <div class="row-fluid">
             <div class="knop" data-toggle="modal" data-target="#expertises">
               Expertises
+              <%= render 'partials/expertises'  %>
             </div>
-            <%= render 'partials/expertises'  %>
-          </div>
-          <br>
-          <div class="row-fluid">
-            <div class="knop" data-toggle="modal" data-target="#targetaudiences">
-              Patientengroepen
+            <br>
+            <div class="row-fluid">
+              <div class="knop" data-toggle="modal" data-target="#targetaudiences">
+                Patientengroepen
+              </div>
+              <%= render 'partials/target-audiences' %>
             </div>
-            <%= render 'partials/target-audiences' %>
           </div>
         </div>
       <% else %>

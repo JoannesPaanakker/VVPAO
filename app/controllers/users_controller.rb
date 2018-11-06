@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all
+    @members = User.where(member: true).sort_by{ |user| user.last_name }
   end
 
   def show
