@@ -1,37 +1,77 @@
 <div class="page-header header1">
-  Psychiaters Amsterdam en Omstreken
+  Psychiaters VVPAO
 </div>
-
-
+<div class="search-container">
+    <!-- <div class="col-xs-12 col-md-6 page-box"> -->
+  <div class="search-box">
+    <span class="hidden-xs">
+      Zoek op naam:
+    </span>
+    <form action="\psychiaters" method="get">
+      <input type="text" placeholder="naam..." name="search[last_name]">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="search-box">
+    <span class="hidden-xs">
+      Zoek op Postcode:<br>
+    </span>
+    <form action="\psychiaters" method="get">
+      <input type="text" placeholder="Postcode (bijv. 1234).." name="search[postalcode]">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="search-box">
+    Zoek op expertise:<br>
+    <form action="\psychiaters" method="get">
+      <select name="search[expertise_id]" id="">
+        <% @expertises.each do |e| %>
+          <option value="<%= e.id %>"><%= e.name %></option>
+        <% end %>
+      </select>
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="search-box">
+    <br>
+    <div class="knop">
+      <%= link_to "volledige lijst", psychiaters_path %>
+    </div>
+  </div>
+</div>
 <div class="container-fluid sub-page">
   <div class="row-fluid">
     <div class="col-xs-12 col-md-6 page-box">
-      Hier kunt u zoeken naar Psychiaters die zijn aangesloten bij de VVPAO Amsterdam.
-      <div>
-        <form action="">
-          Postcode:   <input type="text" name="postcode" value=""placeholder="1234AA"><br><br>
-          Naam:   <input type="text" name="city" value="" placeholder="naam"><br><br>
-          Expertise:
-          <select name="" id="">
-            <% @expertises.each do |e| %>
-              <option value=""><%= e.name %></option>
-            <% end %>
-          </select>
-          <br>
-          <br>
-          <br>
-          <input type="submit" value="ZOEK" class="knop">
-        </form>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-6 page-box">
-      <ul>
-        <% @users.each do |u| %>
-        <li>
-          <%= u.first_name  %> <%= u.last_name  %>, <%= u.city  %>
-        </li>
+      <table>
+        <tr class="userlist">
+          <th>Naam</th>
+          <th>Email</th>
+          <th>Telefoonnummer</th>
+          <th></th>
+        </tr>
+        <% @psychiaters.each do |p| %>
+          <tr class="userlist">
+            <td>
+              <%= p.last_name  %>, <%= p.first_name %> <%= p.tussenvoegsel %>
+            </td>
+            <td>
+              <%= p.practice_email %>
+            </td>
+            <td>
+              <%= p.practice_phonenumber %>
+            </td>
+            <td>
+              <div class="knop-small" data-toggle="modal" data-target="#<%= p.id %>-details">
+                details
+              </div>
+              <div class="modal" id="<%= p.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= p.id %>-details" aria-hidden="true">
+                <% @user = p %>
+                <%= render 'partials/user-details' %>
+              </div>
+            </td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
     </div>
   </div>
   <%= render 'partials/home-button'  %>

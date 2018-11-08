@@ -23,6 +23,15 @@ a {
   color: $base;
 }
 
+.knop > a {
+  color: $plight;
+}
+
+.knop a:hover {
+  background: $vvpao4;
+  color: $pdark;
+}
+
 body {
   color: $pdark;
 }
@@ -39,6 +48,9 @@ body {
 }
 
 .knop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   color: $plight;
   background: $vvpao3;
@@ -66,6 +78,9 @@ body {
   height: 22px;
   box-shadow: -2px 2px $vvpao2;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   color: $plight;
   background: $vvpao3;

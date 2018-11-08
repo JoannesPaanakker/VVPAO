@@ -1,10 +1,37 @@
 <% if current_user.member  %>
-  <div id="index" class="page-header header1">
+  <div id="index" class="page-header header1 flex2">
     Ledenlijst VVPAO
-    <br>
-      <div class="knop" id="switchtolist">
-        andere weergave
+      <div class="knop hidden-xs" id="switchtolist">
+        lijstweergave
       </div>
+    </div>
+  </div>
+  <div class="search-container">
+      <!-- <div class="col-xs-12 col-md-6 page-box"> -->
+    <div class="search-box">
+    Zoek op naam:
+      <form action="\users" method="get">
+        <input type="text" placeholder="naam..." name="search[last_name]">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="search-box">
+    Zoek op postcode:
+      <form action="\users" method="get">
+        <input type="text" placeholder="Postcode (bijv. 1234).." name="search[postalcode]">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="search-box">
+    Zoek op expertise:
+      <form action="\users" method="get">
+        <select name="search[expertise_id]" id="">
+          <% @expertises.each do |e| %>
+            <option value="<%= e.id %>"><%= e.name %></option>
+          <% end %>
+        </select>
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </div>
   </div>
   <div class="container-fluid" id="list">
@@ -29,10 +56,10 @@
               <%= u.phonenumber %>
             </td>
             <td>
-              <div class="knop-small" data-toggle="modal" data-target="#user-details">
+              <div class="knop-small" data-toggle="modal" data-target="#<%= u.id %>-details">
                 details
               </div>
-              <div class="modal" id="user-details" tabindex="-1" role="dialog" aria-labelledby="user-details" aria-hidden="true">
+              <div class="modal" id="<%= u.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= u.id %>-details" aria-hidden="true">
                 <% @user = u %>
                 <%= render 'partials/user-details' %>
               </div>
@@ -59,10 +86,10 @@
               <%= u.email %><br>
               expertise: <%= u.expertise.name %><br>
               tel. nr. <%= u.phonenumber %>
-              <div class="knop-small knop-rechtsonder-user-card" data-toggle="modal" data-target="#user-details2">
+              <div class="knop-small knop-rechtsonder-user-card" data-toggle="modal" data-target="#user<%= u.id %>-details2">
                 details
               </div>
-              <div class="modal" id="user-details2" tabindex="-1" role="dialog" aria-labelledby="user-details2" aria-hidden="true">
+              <div class="modal" id="user<%= u.id %>-details2" tabindex="-1" role="dialog" aria-labelledby="user<%= u.id %>-details2" aria-hidden="true">
                 <% @user = u %>
                 <%= render 'partials/user-details' %>
               </div>
