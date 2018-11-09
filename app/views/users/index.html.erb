@@ -25,80 +25,107 @@
     <div class="search-box">
     Zoek op expertise:
       <form action="\users" method="get">
-        <select name="search[expertise_id]" id="">
+        <select name="search[expertise_id]" id="expertise_filter" data-model="users">
           <% @expertises.each do |e| %>
-            <option value="<%= e.id %>"><%= e.name %></option>
+            <% if e.id == @selected %>
+              <option  selected value="<%= e.id %>">
+                <%= e.name %>
+              </option>
+            <% else %>
+              <option value="<%= e.id %>">
+                <%= e.name %>
+              </option>
+            <% end %>
           <% end %>
         </select>
-        <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
-  </div>
-  <div class="container-fluid" id="list">
-    <div class="rowfluid">
-      <table>
-        <tr class="userlist">
-          <th>Naam</th>
-          <th>Email</th>
-          <th>Telefoonnummer</th>
-          <th></th>
-          <th></th>
-        </tr>
-        <% @members.each do |u| %>
-          <tr class="userlist">
-            <td>
-              <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
-            </td>
-            <td>
-              <%= u.email %>
-            </td>
-            <td>
-              <%= u.phonenumber %>
-            </td>
-            <td>
-              <div class="knop-small" data-toggle="modal" data-target="#<%= u.id %>-details">
-                details
-              </div>
-              <div class="modal" id="<%= u.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= u.id %>-details" aria-hidden="true">
-                <% @user = u %>
-                <%= render 'partials/user-details' %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-  <div class="container-fluid" id="cards">
-    <div class="row-fluid">
-      <div class="col-xs-12 user-card-outer">
-        <% @members.each do |u| %>
-          <div class="user-card">
-            <% if u.profile_image_filename %>
-              <%= image_tag( u.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
-            <% else %>
-              <%= image_tag( "user-default.png" , class: "user-image", alt: "Foto persoon")  %>
-            <% end %>
-            <div class="user-card-text-1">
-              <%= u.first_name %> <%= u.last_name  %>
-            </div>
-            <div class="user-card-text-2">
-              <%= u.email %><br>
-              expertise: <%= u.expertise.name %><br>
-              tel. nr. <%= u.phonenumber %>
-              <div class="knop-small knop-rechtsonder-user-card" data-toggle="modal" data-target="#user<%= u.id %>-details2">
-                details
-              </div>
-              <div class="modal" id="user<%= u.id %>-details2" tabindex="-1" role="dialog" aria-labelledby="user<%= u.id %>-details2" aria-hidden="true">
-                <% @user = u %>
-                <%= render 'partials/user-details' %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+    <div class="search-box">
+      <br>
+      <div class="knop">
+        <%= link_to "volledige lijst", users_path %>
       </div>
     </div>
   </div>
+  <% if @noresults %>
+    <div class="container-fluid" id="cards">
+      <div class="row-fluid">
+        <div class="col-xs-12 user-card-outer">
+          <div class="user-card">
+            <div class="user-card-text-1">
+              <%= @member.first_name %> <%= @member.last_name  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="container-fluid" id="list">
+      <div class="rowfluid">
+        <table>
+          <tr class="userlist">
+            <th>Naam</th>
+            <th>Email</th>
+            <th>Telefoonnummer</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <% @members.each do |u| %>
+            <tr class="userlist">
+              <td>
+                <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
+              </td>
+              <td>
+                <%= u.email %>
+              </td>
+              <td>
+                <%= u.phonenumber %>
+              </td>
+              <td>
+                <div class="knop-small" data-toggle="modal" data-target="#<%= u.id %>-details">
+                  details
+                </div>
+                <div class="modal" id="<%= u.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= u.id %>-details" aria-hidden="true">
+                  <% @user = u %>
+                  <%= render 'partials/user-details' %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="container-fluid" id="cards">
+      <div class="row-fluid">
+        <div class="col-xs-12 user-card-outer">
+          <% @members.each do |u| %>
+            <div class="user-card">
+              <% if u.profile_image_filename %>
+                <%= image_tag( u.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
+              <% else %>
+                <%= image_tag( "user-default.png" , class: "user-image", alt: "Foto persoon")  %>
+              <% end %>
+              <div class="user-card-text-1">
+                <%= u.first_name %> <%= u.last_name  %>
+              </div>
+              <div class="user-card-text-2">
+                <%= u.email %><br>
+                expertise: <%= u.expertise.name %><br>
+                tel. nr. <%= u.phonenumber %>
+                <div class="knop-small knop-rechtsonder-user-card" data-toggle="modal" data-target="#user<%= u.id %>-details2">
+                  details
+                </div>
+                <div class="modal" id="user<%= u.id %>-details2" tabindex="-1" role="dialog" aria-labelledby="user<%= u.id %>-details2" aria-hidden="true">
+                  <% @user = u %>
+                  <%= render 'partials/user-details' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% else %>
   <div class="container-fluid">
     <div class="row-fluid">

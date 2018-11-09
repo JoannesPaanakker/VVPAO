@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'informatie', to: 'pages#informatie'
   get 'nascholing', to: 'pages#nascholing'
   get 'psychiaters', to: 'pages#psychiaters'
+  get 'expertisefilter', to: 'pages#ajax_get_spychiaters_on_expertise'
   get 'lidmaatschap', to: 'pages#lidmaatschap'
   get 'klachten', to: 'pages#klachten'
   get 'nieuws', to: 'pages#nieuws'

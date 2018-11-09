@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @expertises = Expertise.all.all.sort_by{ |expertise| expertise.name }
+    @selected = 0
+    @noresults = false
+    @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
     if params[:search].present?
       if search_params[:last_name].present?
         @members = User.where("member = true AND last_name ILIKE ?", "%#{search_params[:last_name]}%")
@@ -15,12 +18,20 @@ class UsersController < ApplicationController
       elsif search_params[:expertise_id].present?
         @members = User.where("member = true AND expertise_id = ?", "#{search_params[:expertise_id]}")
           .sort_by{ |user| user.last_name }
+        @selected = search_params[:expertise_id].to_i
       else
         @members = User.where(member: true).sort_by{ |user| user.last_name }
       end
     else
       @members = User.where(member: true).sort_by{ |user| user.last_name }
     end
+    if @members.empty?
+      @noresults = true
+      @member = User.new
+      @member.last_name = "met deze expertise"
+      @member.first_name = "Geen psychiater"
+    end
+    render layout: 'memberlist'
   end
 
   def show

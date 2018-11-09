@@ -24,12 +24,19 @@
   <div class="search-box">
     Zoek op expertise:<br>
     <form action="\psychiaters" method="get">
-      <select name="search[expertise_id]" id="">
+      <select name="search[expertise_id]" id="expertise_filter" data-model="psychiaters">
         <% @expertises.each do |e| %>
-          <option value="<%= e.id %>"><%= e.name %></option>
+          <% if e.id == @selected %>
+            <option  selected value="<%= e.id %>">
+              <%= e.name %>
+            </option>
+          <% else %>
+            <option value="<%= e.id %>">
+              <%= e.name %>
+            </option>
+          <% end %>
         <% end %>
       </select>
-      <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <div class="search-box">
@@ -39,40 +46,54 @@
     </div>
   </div>
 </div>
-<div class="container-fluid sub-page">
-  <div class="row-fluid">
-    <div class="col-xs-12 col-md-6 page-box">
-      <table>
-        <tr class="userlist">
-          <th>Naam</th>
-          <th>Email</th>
-          <th>Telefoonnummer</th>
-          <th></th>
-        </tr>
-        <% @psychiaters.each do |p| %>
-          <tr class="userlist">
-            <td>
-              <%= p.last_name  %>, <%= p.first_name %> <%= p.tussenvoegsel %>
-            </td>
-            <td>
-              <%= p.practice_email %>
-            </td>
-            <td>
-              <%= p.practice_phonenumber %>
-            </td>
-            <td>
-              <div class="knop-small" data-toggle="modal" data-target="#<%= p.id %>-details">
-                details
-              </div>
-              <div class="modal" id="<%= p.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= p.id %>-details" aria-hidden="true">
-                <% @user = p %>
-                <%= render 'partials/user-details' %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
+<% if @noresults %>
+  <div class="container-fluid" id="cards">
+    <div class="row-fluid">
+      <div class="col-xs-12 user-card-outer">
+        <div class="user-card">
+          <div class="user-card-text-1">
+            <%= @psychiater.first_name %> <%= @psychiater.last_name  %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <%= render 'partials/home-button'  %>
-</div>
+<% else %>
+  <div class="container-fluid sub-page">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-md-6 page-box">
+        <table>
+          <tr class="userlist">
+            <th>Naam</th>
+            <th>Email</th>
+            <th>Telefoonnummer</th>
+            <th></th>
+          </tr>
+          <% @psychiaters.each do |p| %>
+            <tr class="userlist">
+              <td>
+                <%= p.last_name  %>, <%= p.first_name %> <%= p.tussenvoegsel %>
+              </td>
+              <td>
+                <%= p.practice_email %>
+              </td>
+              <td>
+                <%= p.practice_phonenumber %>
+              </td>
+              <td>
+                <div class="knop-small" data-toggle="modal" data-target="#<%= p.id %>-details">
+                  details
+                </div>
+                <div class="modal" id="<%= p.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= p.id %>-details" aria-hidden="true">
+                  <% @user = p %>
+                  <%= render 'partials/user-details' %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <%= render 'partials/home-button'  %>
+  </div>
+<% end %>
