@@ -1,0 +1,9 @@
+<tr class="userlist">
+  <td>
+    <%= expertise.name %>
+  </td>
+  <td>
+    <%= link_to "verwijder", expertise,  remote: true, data: { confirm: "verwijder expertise #{expertise.name}?" }, method: :delete, class: "knop-small" %>
+<!--     <%#= link_to "verwijder", expertise_path(expertise.id), data: { confirm: "verwijder expertise #{expertise.name}?" }, method: :delete, class: "knop-small" %> -->
+  </td>
+</tr>

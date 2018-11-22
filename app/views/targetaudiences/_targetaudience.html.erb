@@ -1,0 +1,9 @@
+<tr class="userlist">
+  <td>
+    <%= targetaudience.name %>
+  </td>
+  <td>
+    <%= link_to "verwijder", targetaudience,  remote: true, data: { confirm: "verwijder patientengroep #{targetaudience.name}?" }, method: :delete, class: "knop-small" %>
+<!--     <%#= link_to "verwijder", targetaudience_path(targetaudience.id), data: { confirm: "verwijder targetaudience #{targetaudience.name}?" }, method: :delete, class: "knop-small" %> -->
+  </td>
+</tr>

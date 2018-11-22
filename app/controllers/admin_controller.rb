@@ -4,9 +4,9 @@ class AdminController < ApplicationController
   def dashboard
     @newusers = User.where(member: false)
     @members = User.where(member: true).sort_by{ |user| user.last_name }
-    @expertises = Expertise.all
+    @expertises = Expertise.all.sort_by{ |exp| exp.name.downcase }
     @expertise = Expertise.new
-    @targetaudiences = Targetaudience.all
+    @targetaudiences = Targetaudience.all.sort_by{ |aud| aud.name.downcase }
     @targetaudience = Targetaudience.new
   end
 

@@ -1,0 +1,14 @@
+<br>
+<%= simple_form_for @targetaudience, remote: true do |f|   %>
+<!-- <%#= simple_form_for(@targetaudience, url: targetaudiences_path, html: { method: :post }, wrapper: :horizontal_form) do |f| %> -->
+  <%= f.error_notification %>
+
+  <div class="form-inputs" style="display: flex">
+    <%= f.input :name, placeholder: "Nieuwe patientengroep", label: false, input_html: { class: 'input-admin' } %>
+    <%= f.button :submit, "Bewaar", class: "knop" %>
+  </div>
+
+  <div class="form-actions">
+  </div>
+<% end %>
+<br>

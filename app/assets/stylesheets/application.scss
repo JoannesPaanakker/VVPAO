@@ -32,6 +32,14 @@ a {
   color: $pdark;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 body {
   color: $pdark;
 }
@@ -42,7 +50,6 @@ body {
 }
 
 .header2 {
-  margin-top: 10px;
   margin-bottom: 5px;
   font-family: $headers-font;
 }

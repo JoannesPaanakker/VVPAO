@@ -2,26 +2,29 @@
   <div class="row-fluid">
     <div class="col-xs-12 col-md-6 home-box">
       <div class="home-inner-box">
-        <div class="inner-box-large">
+        <div class="inner-box">
           <div class="header1">  <%= @texts[0].name  %></div>
-          <div class="text-box-l">
+          <div class="text-box-m">
             <%= @texts[0].text %>
           </div>
           <%= link_to "meer info", informatie_path, class: "knop knop-linksonder-home-inner-box" %>
         <!-- <div class="knop knop-linksonder">meer</div> -->
         </div>
+      <div class="bg-box">
+
+      </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 home-box">
       <div class="home-inner-box">
-        <div class="inner-box" style="position: relative;">
+        <div class="inner-box">
           <div class="header2">Psychiaters</div>
           <div class="text-box-m">
             Hier kunt u zoeken naar Psychiaters die zijn aangesloten bij de VVPAO Amsterdam.
           </div>
           <%= link_to "Vind psychiater", psychiaters_path, class: "knop knop-linksonder-home-inner-box" %>
         </div>
-        <div class="inner-box" style="position: relative;">
+        <div class="inner-box">
           <div class="header2">Lidmaatschap</div>
           <div class="text-box-m">
             Lid worden van de VVPAO kan wanneer men vrijgevestigd psychiater is, binnen, maar ook buiten Amsterdam, zich ooit vrij wil vestigen (dus elke psychiater die het overweegt) of in opleiding is tot psychiater.
