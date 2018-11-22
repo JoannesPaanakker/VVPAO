@@ -61,8 +61,13 @@ body {
   text-align: center;
   color: $plight;
   background: $vvpao3;
+  cursor: pointer;
   // border: 2px solid $vvpao1;
   // border-radius: 6px;
+}
+
+.ckickable {
+  cursor: pointer;
 }
 
 .knop:hover {
@@ -91,6 +96,7 @@ body {
   text-align: center;
   color: $plight;
   background: $vvpao3;
+  cursor: pointer;
   // border: 2px solid $vvpao1;
   // border-radius: 6px;
 }
