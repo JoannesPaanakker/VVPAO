@@ -39,9 +39,17 @@ a {
 .show {
   display: block;
 }
+html {
+  height: 100%;
+}
 
 body {
+  width: 100vw;
+  min-height: 100%;
+  position: relative;
+  margin: 0;
   color: $pdark;
+  background-color: white;
 }
 
 .header1 {

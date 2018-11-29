@@ -1,7 +1,7 @@
 <div class="footer footer-browser hidden-xs">
   <div class="footer-text-blok">
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 50 %>
+    <%= link_to root_path, class: "navbar-main-logo" do %>
+      <%= image_tag "logo.png" %>
     <% end %>
   </div>
   <div class="footer-text-blok">
@@ -24,18 +24,19 @@
     </a>
   </div>
   <div class="footer-text-blok">
-    <a href="http://eepurl.com/cOAVd5">
+    <!-- <a href="http://eepurl.com/cOAVd5"> -->
       <p class="info-header-foot-text">
-        Schrijf u hier in voor onze nieuwsbrief.
+        Schrijf u hier in voor onze nieuwsbrief:
       </p>
-    </a>
+    <!-- </a> -->
+    <%= link_to "Inschrijven", "http://eepurl.com/cOAVd5", class: "navbarlink leden" %>
   </div>
 </div>
 <!-- footer on mobile -->
 <div class="footer footer-mobile hidden-sm hidden-md hidden-lg">
   <div class="footer-text-blok">
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.png", height: 50 %>
+    <%= link_to root_path, class: "navbar-main-logo" do %>
+      <%= image_tag "logo.png" %>
     <% end %>
   </div>
   <div class="footer-text-blok">
@@ -58,10 +59,11 @@
     </a>
   </div>
   <div class="footer-text-blok">
-    <a href="http://eepurl.com/cOAVd5">
+    <!-- <a href="http://eepurl.com/cOAVd5"> -->
       <p class="info-header-foot-text">
-        Schrijf u hierin voor onze nieuwsbrief.
+        Schrijf u hier in voor onze nieuwsbrief:
       </p>
-    </a>
+    <!-- </a> -->
+    <%= link_to "Inschrijven", "http://eepurl.com/cOAVd5", class: "navbarlink leden" %>
   </div>
 </div>
