@@ -1,11 +1,12 @@
 .logo {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .logo-box {
-  width: 225px;
-  height: 225px;
-  background: black;
-  border-radius: 50%;
+  height: 400px;
+  margin: 0% 0% 0% 10%;
+  background-image: image-url("vvpao-event-2.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }

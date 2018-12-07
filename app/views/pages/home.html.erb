@@ -2,59 +2,41 @@
   <div class="row-fluid">
     <div class="col-xs-12 col-md-6 home-box">
       <div class="home-inner-box">
-        <div class="inner-box">
-          <div class="header1">  <%= @texts[0].name  %></div>
+        <div class="inner-box helft">
+          <div class="header1">Welkom bij de Vereniging van Vrijgevestigd Psychiaters Amsterdam & Omstreken.</div>
           <div class="text-box-m">
-            <%= @texts[0].text %>
+            Deze website is bedoeld voor potentiële patiënten, potentiële nieuwe leden, mensen die iets over de VVPAO willen weten, en uiteraard voor de leden. De VVPAO stelt zich ten doel de vrije praktijkvoering voor psychiaters te ondersteunen door het vormen van dit netwerk, onderlinge steun, informatie en nascholing.
           </div>
           <%= link_to "meer info", informatie_path, class: "knop knop-linksonder-home-inner-box" %>
         <!-- <div class="knop knop-linksonder">meer</div> -->
         </div>
-        <div class="bg-box">
+        <div class="bg-box inner-box helft">
 
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 home-box">
       <div class="home-inner-box">
-        <div class="inner-box">
+        <div class="inner-box kwart">
           <div class="header2">Psychiaters</div>
           <div class="text-box-m">
             Hier kunt u zoeken naar Psychiaters die zijn aangesloten bij de VVPAO Amsterdam.
           </div>
           <%= link_to "Vind psychiater", psychiaters_path, class: "knop knop-linksonder-home-inner-box" %>
         </div>
-        <div class="inner-box">
+        <div class="inner-box derde">
           <div class="header2">Lidmaatschap</div>
           <div class="text-box-m">
             Lid worden van de VVPAO kan wanneer men vrijgevestigd psychiater is, binnen, maar ook buiten Amsterdam, zich ooit vrij wil vestigen (dus elke psychiater die het overweegt) of in opleiding is tot psychiater.
           </div>
         <%= link_to "lidmaatschap", lidmaatschap_path, class: "knop knop-linksonder-home-inner-box" %>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="col-xs-12 col-md-6 home-box">
-      <div class="home-inner-box">
-        <div class="inner-box">
-          <div class="header2">Nascholing</div>
-        <ul>
-        <% @trainings.each do |tr| %>
-            <li> <div class="header2"><%= tr.title %></div>
-organiser:
-              <%= tr.user.first_name %> <%= tr.user.last_name %>  </li>
-        <% end %>
-      </ul>
+        <div class="inner-box helft">
+          <div class="header2">
+            Nieuws
+          </div>
+          <%= render 'partials/newsitems'  %>
         </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-6 home-box">
-      <div class="home-inner-box">
-        <div class="header2">
-          Nieuws
-        </div>
-        <%= render 'partials/newsitems'  %>
       </div>
     </div>
   </div>

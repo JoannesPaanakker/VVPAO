@@ -92,13 +92,12 @@
           <% @links = Link.where(category_id: cat.id) %>
           <% @links.each do |lk| %>
             <li>
-              <%= lk.description %>: <span class="link"> <%= link_to lk.url, lk.url %> </span>
+              <span class="link"> <%= link_to lk.description, lk.url, target: "_blank" %> </span>
             </li>
           <% end %>
         </ul>
       <% end %>
   </div>
   <div class="blok">
-    <%= render 'partials/home-button'  %>
   </div>
 </div>
