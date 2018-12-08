@@ -25,9 +25,11 @@ class PagesController < ApplicationController
   end
 
   def psychiaters
-    @selected = 0
     @noresults = false
     @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
+    # change name of first entry (000000)
+    @expertises[0].name = "Alle expertises"
+    @all_expertises = @expertises[0].id
     @targetaudiences = Targetaudience.all.sort_by{ |targetaudience| targetaudience.name }
     if params[:search].present?
       if search_params[:last_name].present?
@@ -35,8 +37,13 @@ class PagesController < ApplicationController
       elsif search_params[:postalcode].present?
         get_psychiaters_on_postalcode
       elsif search_params[:expertise_id].present?
-        get_spychiaters_on_expertise
-        @selected = search_params[:expertise_id].to_i
+        @spid = search_params[:expertise_id].to_i
+        if @spid == @all_expertises
+          get_all_psychiaters
+        else
+          get_spychiaters_on_expertise
+        end
+        @selected = @spid
       else
         get_all_psychiaters
       end
@@ -46,7 +53,7 @@ class PagesController < ApplicationController
     if @psychiaters.empty?
       @noresults = true
       @psychiater = User.new
-      @psychiater.last_name = "met deze expertise"
+      @psychiater.last_name = "met deze expertise gevonden"
       @psychiater.first_name = "Geen psychiater"
     end
     render layout: 'psychiaterslist'

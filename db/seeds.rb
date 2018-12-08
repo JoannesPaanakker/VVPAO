@@ -30,7 +30,7 @@ targetaudiences = Targetaudience.create([
 
 expertises = Expertise.create([
   {
-    name: 'Geen'
+    name: '0000000000'
   },
   {
     name: 'ADHD'

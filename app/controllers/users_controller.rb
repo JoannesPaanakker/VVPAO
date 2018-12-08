@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @selected = 0
     @noresults = false
     @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
+    @expertises[0].name = "Alle expertises"
+    @all_expertises = @expertises[0].id
     if params[:search].present?
       if search_params[:last_name].present?
         @members = User.where("member = true AND last_name ILIKE ?", "%#{search_params[:last_name]}%")
@@ -16,9 +18,13 @@ class UsersController < ApplicationController
           .or(User.where(sql_search2, "%#{search_params[:postalcode]}%"))
           .sort_by{ |user| user.last_name }
       elsif search_params[:expertise_id].present?
-        @members = User.where("member = true AND expertise_id = ?", "#{search_params[:expertise_id]}")
-          .sort_by{ |user| user.last_name }
-        @selected = search_params[:expertise_id].to_i
+        @spid = search_params[:expertise_id].to_i
+        if @spid == @all_expertises
+          get_all_members
+        else
+          get_members_on_expertise
+        end
+        @selected = @spid
       else
         @members = User.where(member: true).sort_by{ |user| user.last_name }
       end
@@ -32,6 +38,20 @@ class UsersController < ApplicationController
       @member.first_name = "Geen psychiater"
     end
     render layout: 'memberlist'
+  end
+
+  def get_all_members
+    @members = User.where("personal_data_public = true AND member = true")
+      .or(User.where("practice_data_public = true AND member = true"))
+      .sort_by{ |user| user.last_name }
+  end
+
+  def get_members_on_expertise
+    sql1 ="personal_data_public = true AND member = true AND expertise_id = ?"
+    sql2 = "practice_data_public = true AND member = true AND expertise_id = ?"
+    @members = User.where(sql1, "#{search_params[:expertise_id]}")
+      .or(User.where(sql2, "#{search_params[:expertise_id]}"))
+      .sort_by{ |user| user.last_name }
   end
 
   def show

@@ -28,9 +28,10 @@
     Zoek op expertise:<br>
     <form action="\psychiaters" method="get">
       <select name="search[expertise_id]" id="expertise_filter" data-model="psychiaters">
+        <option hidden disabled selected value>Expertise ....</option>
         <% @expertises.each do |e| %>
           <% if e.id == @selected %>
-            <option  selected value="<%= e.id %>">
+            <option selected value="<%= e.id %>">
               <%= e.name %>
             </option>
           <% else %>
@@ -44,13 +45,15 @@
   </div>
   <div class="search-box">
     <br>
-    <div class="knop">
-      <%= link_to "volledige lijst", psychiaters_path %>
-    </div>
+     <%= link_to psychiaters_path do %>
+      <div class="knop">
+        volledige lijst
+      </div>
+    <% end %>
   </div>
 </div>
 <% if @noresults %>
-  <div class="container-fluid" id="cards">
+  <div class="container-fluid">
     <div class="row-fluid">
       <div class="col-xs-12 user-card-outer">
         <div class="user-card">
