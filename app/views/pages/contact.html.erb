@@ -8,15 +8,21 @@
       Vereniging van Vrijgevestigd Psychiaters Amsterdam en Omstreken
       </div>
       <div class="header2">
-        <%= @texts[8].name  %>
+        Secretariaat
       </div>
-        <%= @texts[8].text.html_safe %>
+        Winja Leuijerink,<br>
+        Henriëtte Roland Holststraat 19 <br>
+        1064TS Amsterdam <br>
       <div class="link">
         <a href="mailto:info@vvpao.amsterdam">
           <span class="info-header-foot-text">
-            <%= @texts[9].text %>
+            info@vvpao.amsterdam
           </span>
         </a>
+      </div>
+      <br>
+      <div class="link">
+        <%= link_to "naar lidmaatschapsinformatie", lidmaatschap_path, class: ""  %>
       </div>
     </div>
   </div>

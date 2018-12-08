@@ -1,8 +1,8 @@
 <% if current_user.member  %>
   <div id="index" class="page-header header1 flex2">
     Ledenlijst VVPAO
-      <div class="knop hidden-xs" id="switchtolist">
-        lijstweergave
+      <div class="knop hidden-xs" id="switch">
+        cards weergave
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
       </div>
     </div>
   <% else %>
-    <div class="container-fluid" id="list">
+    <div class="container-fluid" id="list" style="display: block;">
       <div class="rowfluid">
         <table>
           <tr class="userlist">
