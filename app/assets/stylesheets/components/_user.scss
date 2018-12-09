@@ -1,3 +1,7 @@
+.profile-header {
+  margin: 10px 60px 0px;
+}
+
 #list {
   // display: block;
 }
@@ -8,6 +12,12 @@
 
 #switch {
   font-size: 16px;
+}
+
+.flex-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .user-index {

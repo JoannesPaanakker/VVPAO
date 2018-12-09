@@ -1,15 +1,15 @@
 <% if current_user.member  %>
-  <div id="index" class="page-header header1 flex2">
-    Ledenlijst VVPAO
-      <div class="knop hidden-xs" id="switch">
-        cards weergave
+  <div class="search-container">
+      <div id="index" class="search-header flex-header">
+        Ledenlijst VVPAO
+        <div class="knop hidden-xs" id="switch">
+          cards weergave
+        </div>
       </div>
     </div>
-  </div>
   <div class="search-container">
-      <!-- <div class="col-xs-12 col-md-6 page-box"> -->
     <div class="search-box">
-    Zoek op naam:
+      Zoek op naam:
       <form action="\users" method="get">
         <input type="text" placeholder="naam..." name="search[last_name]">
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -43,9 +43,11 @@
     </div>
     <div class="search-box">
       <br>
-      <div class="knop">
-        <%= link_to "volledige lijst", users_path %>
-      </div>
+       <%= link_to users_path do %>
+        <div class="knop">
+          volledige lijst
+        </div>
+      <% end %>
     </div>
   </div>
   <% if @noresults %>
@@ -63,37 +65,39 @@
   <% else %>
     <div class="container-fluid" id="list" style="display: block;">
       <div class="rowfluid">
-        <table>
-          <tr class="userlist">
-            <th>Naam</th>
-            <th>Email</th>
-            <th>Telefoonnummer</th>
-            <th></th>
-            <th></th>
-          </tr>
-          <% @members.each do |u| %>
+        <div class="col-xs-12 col-md-9 page-box">
+          <table>
             <tr class="userlist">
-              <td>
-                <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
-              </td>
-              <td>
-                <%= u.email %>
-              </td>
-              <td>
-                <%= u.phonenumber %>
-              </td>
-              <td>
-                <div class="knop-small" data-toggle="modal" data-target="#<%= u.id %>-details">
-                  details
-                </div>
-                <div class="modal" id="<%= u.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= u.id %>-details" aria-hidden="true">
-                  <% @user = u %>
-                  <%= render 'partials/user-details' %>
-                </div>
-              </td>
+              <th>Naam</th>
+              <th>Email</th>
+              <th>Telefoonnummer</th>
+              <th></th>
+              <th></th>
             </tr>
-          <% end %>
-        </table>
+            <% @members.each do |u| %>
+              <tr class="userlist">
+                <td>
+                  <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
+                </td>
+                <td>
+                  <%= u.email %>
+                </td>
+                <td>
+                  <%= u.phonenumber %>
+                </td>
+                <td>
+                  <div class="knop-small" data-toggle="modal" data-target="#<%= u.id %>-details">
+                    details
+                  </div>
+                  <div class="modal" id="<%= u.id %>-details" tabindex="-1" role="dialog" aria-labelledby="<%= u.id %>-details" aria-hidden="true">
+                    <% @user = u %>
+                    <%= render 'partials/user-details' %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
     <div class="container-fluid" id="cards">

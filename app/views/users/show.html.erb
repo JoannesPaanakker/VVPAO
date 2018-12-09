@@ -1,67 +1,39 @@
 
 <% if current_user.member  %>
-  <div id="profile" class="page-header header1">
+  <div id="profile" class="profile-header header1">
     Gegevens van <%= @user.first_name %> <%= @user.initials %> <%= @user.tussenvoegsel %> <%= @user.last_name %>
   </div>
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="col-xs-12 col-md-6 home-box">
+      <div class="col-xs-12 col-md-5">
         <div class="home-inner-box">
-          <div class="header1">Persoonlijke gegevens</div>
-          <div class="public">
-            <% if @user.personal_data_public %>
-              Openbaar (zichtbaar voor publiek)
-            <% else %>
-              Niet Openbaar (alleen zichtbaar voor leden)
-            <% end %>
-          </div>
-          <% if @user == current_user %>
-            <div class="knop-small" data-toggle="modal" data-target="#personalPublic">
-              pas aan
-            </div>
-          <% end %>
-          <!-- Edit modal -->
-          <div class="modal" id="personalPublic" tabindex="-1" role="dialog" aria-labelledby="personalPublic" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= render 'partials/switch-personal-public' %>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="knop" data-dismiss="modal">annuleer</button>
-                </div>
+          <div class="inner-box full">
+            <div class="header1">Persoonlijke gegevens</div>
+            <div class="flex2">
+              <div class="public">
+                <% if @user.personal_data_public %>
+                  Openbaar (zichtbaar voor publiek)
+                <% else %>
+                  Niet Openbaar (alleen zichtbaar voor leden)
+                <% end %>
               </div>
-            </div>
-          </div>
-          <div class="text-box-l">
-            <%= @user.street %> <%= @user.streetnumber %><br>
-            <%= @user.postalcode %> <%= @user.city %><br>
-            <br>
-            <%= @user.email %> <br>
-            Tel. nr. <%= @user.phonenumber %><br>
-            BIG: <%= @user.big %><br>
-          </div>
-          <% if @user == current_user %>
-            <div class="knop" data-toggle="modal" data-target="#editPersonal">
-              bewerk
+              <% if @user == current_user %>
+                <div class="knop-small" data-toggle="modal" data-target="#personalPublic">
+                  pas aan
+                </div>
+              <% end %>
             </div>
             <!-- Edit modal -->
-            <div class="modal fade" id="editPersonal" tabindex="-1" role="dialog" aria-labelledby="editPersonalLabel" aria-hidden="true">
+            <div class="modal" id="personalPublic" tabindex="-1" role="dialog" aria-labelledby="personalPublic" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="editPersonalLabel">Pas persoonlijke gegevens aan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render 'partials/edit-personal' %>
+                    <%= render 'partials/switch-personal-public' %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="knop" data-dismiss="modal">annuleer</button>
@@ -69,74 +41,71 @@
                 </div>
               </div>
             </div>
-          <% end %>
+            <div class="text-box-l">
+              <%= @user.street %> <%= @user.streetnumber %><br>
+              <%= @user.postalcode %> <%= @user.city %><br>
+              <br>
+              <%= @user.email %> <br>
+              Tel. nr. <%= @user.phonenumber %><br>
+              BIG: <%= @user.big %><br>
+            </div>
+            <% if @user == current_user %>
+            <br>
+              <div class="knop" data-toggle="modal" data-target="#editPersonal">
+                bewerk
+              </div>
+              <!-- Edit modal -->
+              <div class="modal fade" id="editPersonal" tabindex="-1" role="dialog" aria-labelledby="editPersonalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editPersonalLabel">Pas persoonlijke gegevens aan</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'partials/edit-personal' %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="col-xs-12 col-md-6 home-box">
+      <div class="col-xs-12 col-md-5">
         <div class="home-inner-box">
-          <div class="header1">Praktijk gegevens</div>
-          <div class="public">
-            <% if @user.practice_data_public %>
-              Openbaar (zichtbaar voor publiek)
-            <% else %>
-              Niet Openbaar (alleen zichtbaar voor leden)
-            <% end %>
-          </div>
-          <% if @user == current_user %>
-            <div class="knop-small" data-toggle="modal" data-target="#practicePublic">
-              pas aan
-            </div>
-          <% end %>
-          <!-- Edit modal -->
-          <div class="modal" id="practicePublic" tabindex="-1" role="dialog" aria-labelledby="practicePublic" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= render 'partials/switch-practice-public' %>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="knop" data-dismiss="modal">annuleer</button>
-                </div>
+          <div class="inner-box full">
+            <div class="header1">Praktijk gegevens</div>
+            <div class="flex2">
+              <div class="public">
+                <% if @user.practice_data_public %>
+                  Openbaar (zichtbaar voor publiek)
+                <% else %>
+                  Niet Openbaar (alleen zichtbaar voor leden)
+                <% end %>
               </div>
-            </div>
-          </div>
-          <div class="text-box-l">
-            Expertise: <%= @user.expertise.name %><br>
-            Patientengroep: <%= @user.targetaudience.name %><br>
-            <%= @user.practice_name %><br>
-            <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
-            <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
-            <br>
-            Email: <%= @user.practice_email %> <br>
-            Website: <%= link_to @user.website, @user.website %> <br>
-            Tel. nr. <%= @user.practice_phonenumber %><br>
-            <% if @user.newregistrations %>
-              Er worden nieuwe patienten aangenomen (informatie over eventuele wachttijden zijn beschikbar op de site van de praktijk).
-            <% else %>
-              Er worden (voorlopig) geen nieuwe patienten aangenomen
-            <% end %>
-          </div>
-          <% if @user == current_user %>
-            <div class="knop" data-toggle="modal" data-target="#editPractice">
-              bewerk
+              <% if @user == current_user %>
+                <div class="knop-small" data-toggle="modal" data-target="#practicePublic">
+                  pas aan
+                </div>
+              <% end %>
             </div>
             <!-- Edit modal -->
-            <div class="modal fade" id="editPractice" tabindex="-1" role="dialog" aria-labelledby="editPracticeLabel" aria-hidden="true">
+            <div class="modal" id="practicePublic" tabindex="-1" role="dialog" aria-labelledby="practicePublic" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="editPracticeLabel">Pas praktijkgegevens aan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render 'partials/edit-practice' %>
+                    <%= render 'partials/switch-practice-public' %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="knop" data-dismiss="modal">annuleer</button>
@@ -144,12 +113,54 @@
                 </div>
               </div>
             </div>
-          <% end %>
+            <div class="text-box-l">
+              Expertises: <%= @user.expertises  %> <br>
+              Expertise: <%= @user.expertise.name %><br>
+              Patientengroep: <%= @user.targetaudience.name %><br>
+              <%= @user.practice_name %><br>
+              <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
+              <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
+              <br>
+              Email: <%= @user.practice_email %> <br>
+              Website: <%= link_to @user.website, @user.website %> <br>
+              Tel. nr. <%= @user.practice_phonenumber %><br>
+              <% if @user.newregistrations %>
+                Er worden nieuwe patienten aangenomen (informatie over eventuele wachttijden zijn beschikbar op de site van de praktijk).
+              <% else %>
+                Er worden (voorlopig) geen nieuwe patienten aangenomen
+              <% end %>
+            </div>
+            <% if @user == current_user %>
+              <br>
+              <div class="knop" data-toggle="modal" data-target="#editPractice">
+                bewerk
+              </div>
+              <!-- Edit modal -->
+              <div class="modal fade" id="editPractice" tabindex="-1" role="dialog" aria-labelledby="editPracticeLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editPracticeLabel">Pas praktijkgegevens aan</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'partials/edit-practice' %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
       <% if @user == current_user %>
-        <div class="col-xs-12 col-md-6 home-box">
-          <div class="home-inner-box">
+        <div class="hidden col-xs-12 col-md-4">
+          <div class="inner-box full">
             <div class="header1">Overige gegevens</div>
             <div class="public">
               Alleen zichtbaar voor <%= @user.first_name %> <%= @user.initials %> <%= @user.tussenvoegsel %> <%= @user.last_name %> en het bestuur van de VVPAO.
@@ -175,7 +186,7 @@
 <% else %>
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="col-xs-12 col-md-6 home-box">
+      <div class="col-xs-12 col-md-6">
         <p>
           Uw aanvraag voor het lidmaatschap is in behandeling.
         </p>

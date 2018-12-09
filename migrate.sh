@@ -26,3 +26,4 @@ rails g migration AddExtrasToUser tusssenvoegsel:string big:string buddy:boolean
 
 rails g migration AddContractToUser contract:boolean
 
+rails g migration AddExpertisesToUser expertises:text

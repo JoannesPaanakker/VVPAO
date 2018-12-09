@@ -198,6 +198,7 @@ users = User.create([
     training_suggestion: "",
     personal_data_public: false,
     practice_data_public: true,
+    expertises: ["this", "that"]
   },
   {
     email: 'penningmeester@vvpao.amsterdam',
@@ -232,6 +233,7 @@ users = User.create([
     training_suggestion: "",
     personal_data_public: false,
     practice_data_public: true,
+    expertises: ["Delier", "Verslavingspsychiatrie"]
   },
   {
     email: 'admin@vvpao.ams',

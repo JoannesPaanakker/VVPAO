@@ -13,6 +13,10 @@
   padding: 0px 20px 50px 0px;
 }
 
+.lid-box {
+  height: 100%;
+}
+
 .sub-page {
   position: relative;
   padding: 0px 0px 50px 0px;
@@ -42,10 +46,20 @@
   .page-box {
     margin: 10px 0px 0px 25px;
   }
+
+  .lid-box {
+    margin: 10px 0px 0px 0px;
+    padding: 0px 20px 50px 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .page-box {
     margin: 10px 0px 0px 10px;
+  }
+
+  .lid-box {
+    margin: 10px 0px 0px 10px;
+    padding: 0px 20px 50px 0px;
   }
 }

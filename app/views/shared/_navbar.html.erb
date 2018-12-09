@@ -40,8 +40,8 @@
 
     <% if user_signed_in? && current_user.member %>
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-item">
-        <div class="dropdown">
+      <div class="navbar-item" id="dropdown-hover">
+        <div class="dropdown" >
 
           <% if current_user.profile_image_filename %>
             <%= image_tag current_user.profile_image_filename, class: "avatar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
