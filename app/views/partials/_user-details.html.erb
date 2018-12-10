@@ -24,7 +24,7 @@
         <div class="home-inner-box">
           <div class="header1">Praktijk gegevens</div>
           <div class="text-box-l">
-            <%= render "partials/show_expertises" %>
+            <%= render "partials/show_expertises" %><br>
             Patientengroep: <%= @user.targetaudience.name %><br>
             <%= @user.practice_name %><br>
             <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
@@ -51,7 +51,7 @@
       <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="knop" data-dismiss="modal">terug</button>
+        <button type="button" class="knop" data-dismiss="modal">sluit</button>
       </div>
     </div>
   </div>
