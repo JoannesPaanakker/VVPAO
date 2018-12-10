@@ -1,0 +1,40 @@
+<div class="knop-small editExpertise" data-toggle="modal" data-target="#editExpertise">
+  expertises
+</div>
+<div class="modal" id="editExpertise" tabindex="-1" role="dialog" aria-labelledby="editExpertise" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Vink specialisaties aan die van toepassing zijn en druk op "bewaar".
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@user, url: user_path(@user), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
+
+
+
+          <% @all_expertises.each do |e| %>
+
+            <div class="form-actions">
+              <% if @user.expertises.include? e.name %>
+                <input type="checkbox" name="user[expertises][]" value="<%= e.name %>" checked>
+              <% else %>
+                <input type="checkbox" name="user[expertises][]" value="<%= e.name %>">
+              <% end %>
+              <%= e.name %>
+            </div>
+
+          <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, "bewaar", class: "knop" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="knop" data-dismiss="modal">annuleer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,15 +27,15 @@
   <div class="search-box">
     Zoek op expertise:<br>
     <form action="\psychiaters" method="get">
-      <select name="search[expertise_id]" id="expertise_filter" data-model="psychiaters">
+      <select name="search[expertise_name]" id="expertise_filter" data-model="psychiaters">
         <option hidden disabled selected value>Expertise ....</option>
         <% @expertises.each do |e| %>
-          <% if e.id == @selected %>
-            <option selected value="<%= e.id %>">
+          <% if e.name == @selected %>
+            <option selected value="<%= e.name %>">
               <%= e.name %>
             </option>
           <% else %>
-            <option value="<%= e.id %>">
+            <option value="<%= e.name %>">
               <%= e.name %>
             </option>
           <% end %>

@@ -7,7 +7,7 @@ function expertiseFilter() {
   const expertise = exp_filter.value;
   // console.log(expertise);
   var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-  window.location = '/'+ path +'?search[expertise_id]=' + expertise;
+  window.location = '/'+ path +'?search[expertise_name]=' + expertise;
 }
 
 console.log('expertiseFilter loaded')

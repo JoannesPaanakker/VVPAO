@@ -114,8 +114,9 @@
               </div>
             </div>
             <div class="text-box-l">
-              Expertises: <%= @user.expertises  %> <br>
-              Expertise: <%= @user.expertise.name %><br>
+              <%= render "partials/show_expertises" %>
+              <%= render "partials/edit_expertises" %>
+              <br>
               Patientengroep: <%= @user.targetaudience.name %><br>
               <%= @user.practice_name %><br>
               <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>

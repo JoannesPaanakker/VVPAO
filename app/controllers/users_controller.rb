@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @selected = 0
+    # @selected = 0
     @noresults = false
     @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
     @expertises[0].name = "Alle expertises"
-    @all_expertises = @expertises[0].id
+    @all_expertises = @expertises[0].name
     if params[:search].present?
       if search_params[:last_name].present?
         @members = User.where("member = true AND last_name ILIKE ?", "%#{search_params[:last_name]}%")
@@ -17,8 +17,8 @@ class UsersController < ApplicationController
         @members = User.where(sql_search, "%#{search_params[:postalcode]}%")
           .or(User.where(sql_search2, "%#{search_params[:postalcode]}%"))
           .sort_by{ |user| user.last_name }
-      elsif search_params[:expertise_id].present?
-        @spid = search_params[:expertise_id].to_i
+      elsif search_params[:expertise_name].present?
+        @spid = search_params[:expertise_name]
         if @spid == @all_expertises
           get_all_members
         else
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @members.empty?
       @noresults = true
       @member = User.new
-      @member.last_name = "met deze expertise"
+      @member.last_name = "met deze expertise gevonden"
       @member.first_name = "Geen psychiater"
     end
     render layout: 'memberlist'
@@ -47,16 +47,17 @@ class UsersController < ApplicationController
   end
 
   def get_members_on_expertise
-    sql1 ="personal_data_public = true AND member = true AND expertise_id = ?"
-    sql2 = "practice_data_public = true AND member = true AND expertise_id = ?"
-    @members = User.where(sql1, "#{search_params[:expertise_id]}")
-      .or(User.where(sql2, "#{search_params[:expertise_id]}"))
+    sql1 ="personal_data_public = true AND member = true AND ? = ANY (expertises)"
+    sql2 = "practice_data_public = true AND member = true AND ? = ANY (expertises)"
+    @members = User.where(sql1, "#{search_params[:expertise_name]}")
+      .or(User.where(sql2, "#{search_params[:expertise_name]}"))
       .sort_by{ |user| user.last_name }
   end
 
   def show
     @user = User.find(params[:id])
     @usertrainings = Usertraining.where(user_id: @user.id)
+    @all_expertises = Expertise.all.drop(1)
   end
 
   def update
@@ -83,11 +84,11 @@ class UsersController < ApplicationController
   private
   def search_params
     if params[:search].present?
-      params.require(:search).permit(:last_name, :expertise_id, :postalcode)
+      params.require(:search).permit(:last_name, :expertise_id, :expertise_name, :postalcode)
     end
   end
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :tussenvoegsel, :last_name, :initials, :street, :streetnumber, :postalcode, :city, :phonenumber, :dob, :big, :practice_name, :practice_street, :practice_streetnumber, :practice_postalcode, :practice_city, :practice_email, :practice_phonenumber, :website, :contract, :buddy, :training_suggestion, :expertise_id, :waitingperiod, :newregistrations, :personal_data_public, :practice_data_public, :targetaudience_id, :expertise_id, :member)
+    params.require(:user).permit(:email, :first_name, :tussenvoegsel, :last_name, :initials, :street, :streetnumber, :postalcode, :city, :phonenumber, :dob, :big, :practice_name, :practice_street, :practice_streetnumber, :practice_postalcode, :practice_city, :practice_email, :practice_phonenumber, :website, :contract, :buddy, :training_suggestion, :expertise_id, :waitingperiod, :newregistrations, :personal_data_public, :practice_data_public, :targetaudience_id, :expertise_id, :member, :expertises => [])
   end
 end

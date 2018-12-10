@@ -29,15 +29,15 @@ class PagesController < ApplicationController
     @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
     # change name of first entry (000000)
     @expertises[0].name = "Alle expertises"
-    @all_expertises = @expertises[0].id
+    @all_expertises = @expertises[0].name
     @targetaudiences = Targetaudience.all.sort_by{ |targetaudience| targetaudience.name }
     if params[:search].present?
       if search_params[:last_name].present?
         get_psychiaters_on_name
       elsif search_params[:postalcode].present?
         get_psychiaters_on_postalcode
-      elsif search_params[:expertise_id].present?
-        @spid = search_params[:expertise_id].to_i
+      elsif search_params[:expertise_name].present?
+        @spid = search_params[:expertise_name]
         if @spid == @all_expertises
           get_all_psychiaters
         else
@@ -86,10 +86,10 @@ class PagesController < ApplicationController
   end
 
   def get_spychiaters_on_expertise
-    sql1 ="personal_data_public = true AND member = true AND expertise_id = ?"
-    sql2 = "practice_data_public = true AND member = true AND expertise_id = ?"
-    @psychiaters = User.where(sql1, "#{search_params[:expertise_id]}")
-      .or(User.where(sql2, "#{search_params[:expertise_id]}"))
+    sql1 ="personal_data_public = true AND member = true AND ? = ANY (expertises)"
+    sql2 = "practice_data_public = true AND member = true AND ? = ANY (expertises)"
+    @psychiaters = User.where(sql1, "#{search_params[:expertise_name]}")
+      .or(User.where(sql2, "#{search_params[:expertise_name]}"))
       .sort_by{ |user| user.last_name }
   end
 
@@ -128,7 +128,7 @@ class PagesController < ApplicationController
 
   def search_params
     if params[:search].present?
-      params.require(:search).permit(:last_name, :expertise_id, :postalcode)
+      params.require(:search).permit(:last_name, :expertise_id, :expertise_name, :postalcode)
     end
   end
 end
