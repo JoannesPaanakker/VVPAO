@@ -95,6 +95,7 @@
                 </div>
               <% end %>
             </div>
+            <br>
             <!-- Edit modal -->
             <div class="modal" id="practicePublic" tabindex="-1" role="dialog" aria-labelledby="practicePublic" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -116,12 +117,10 @@
             <div class="text-box-l">
               <%= render "partials/show_expertises" %>
               <%= render "partials/edit_expertises" %>
-              <br>
-              Patientengroep: <%= @user.targetaudience.name %><br>
+              <br><br>
               <%= @user.practice_name %><br>
               <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
               <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
-              <br>
               Email: <%= @user.practice_email %> <br>
               Website: <%= link_to @user.website, @user.website %> <br>
               Tel. nr. <%= @user.practice_phonenumber %><br>
@@ -130,6 +129,7 @@
               <% else %>
                 Er worden (voorlopig) geen nieuwe patienten aangenomen
               <% end %>
+              Patientengroep: <%= @user.targetaudience.name %><br>
             </div>
             <% if @user == current_user %>
               <br>

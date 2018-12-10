@@ -25,11 +25,9 @@
           <div class="header1">Praktijk gegevens</div>
           <div class="text-box-l">
             <%= render "partials/show_expertises" %><br>
-            Patientengroep: <%= @user.targetaudience.name %><br>
             <%= @user.practice_name %><br>
             <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
-            <%= @user.practice_postalcode %> <%= @user.practice_city %><br>
-            <br>
+            <%= @user.practice_postalcode %> <%= @user.practice_city %> <br>
             Email: <%= @user.practice_email %> <br>
             Website: <%= link_to @user.website, @user.website %> <br>
             Tel. nr. <%= @user.practice_phonenumber %><br>
@@ -38,6 +36,7 @@
             <% else %>
               Er worden (voorlopig) geen nieuwe patienten aangenomen
             <% end %>
+            Patientengroep: <%= @user.targetaudience.name %><br>
             <br>
             De parktijk heeft
             <% if @user.contract%>
