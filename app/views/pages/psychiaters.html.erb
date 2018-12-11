@@ -67,21 +67,17 @@
 <% else %>
   <div class="container-fluid sub-page">
     <div class="row-fluid">
-      <div class="col-xs-12 col-md-9 page-box">
+      <div class="col-xs-12 col-md-5 page-box">
         <table>
           <tr class="userlist">
             <th>Naam</th>
-            <th>Email</th>
-            <th>Telefoonnummer</th>
+            <th>Telefoonr. praktijk</th>
             <th></th>
           </tr>
           <% @psychiaters.each do |p| %>
             <tr class="userlist">
               <td>
                 <%= p.last_name  %>, <%= p.first_name %> <%= p.tussenvoegsel %>
-              </td>
-              <td>
-                <%= p.practice_email %>
               </td>
               <td>
                 <%= p.practice_phonenumber %>
@@ -98,6 +94,11 @@
             </tr>
           <% end %>
         </table>
+      </div>
+      <div class="col-xs-12 col-md-7 googlemap">
+        <div id="map">
+
+        </div>
       </div>
     </div>
   </div>

@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'bootsnap', require: false
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem "comfortable_mexican_sofa", "~> 2.0.0"
+gem "figaro"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

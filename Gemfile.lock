@@ -89,6 +89,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
     globalid (0.4.1)
@@ -267,6 +269,7 @@ DEPENDENCIES
   comfortable_mexican_sofa (~> 2.0.0)
   devise
   dotenv-rails
+  figaro
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.0)
   kaminari (~> 1.1, >= 1.1.1)

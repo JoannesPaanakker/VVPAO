@@ -10,6 +10,6 @@ function expertiseFilter() {
   window.location = '/'+ path +'?search[expertise_name]=' + expertise;
 }
 
-console.log('expertiseFilter loaded')
+console.log('expertiseFilter loaded');
 
 export { expertiseFilter };
