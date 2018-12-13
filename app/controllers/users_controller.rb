@@ -47,7 +47,8 @@ class UsersController < ApplicationController
       {
         lng: psych.lng,
         lat: psych.lat,
-        title: "#{psych.first_name} #{psych.last_name}\n #{psych.practice_email}"
+        title: "#{psych.first_name} #{psych.last_name}\n #{psych.practice_email}",
+        id: psych.id
       }
     end
   end
