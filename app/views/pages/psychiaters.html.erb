@@ -96,10 +96,12 @@
         </table>
       </div>
       <div class="col-xs-12 col-md-7 googlemap">
-        <div id="map">
+        <div id="map" data-markers="<%= @markers %>">
 
         </div>
       </div>
     </div>
   </div>
 <% end %>
+<a id="kaboom" data-psychs="<%= @all_psychs %>" href="#">kaboom</a>
+

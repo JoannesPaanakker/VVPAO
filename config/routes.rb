@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'apply', to: 'pages#apply'
   get 'dashboard', to: 'admin#dashboard'
+  get 'kaboom', to: 'pages#kaboom'
 
   resources :users, only: [:show, :index, :update]
   resources :newsitems, only: [:create, :update, :destroy]

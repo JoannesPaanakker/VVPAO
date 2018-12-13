@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  respond_to :html, :js
 
   def index
     # @selected = 0
@@ -37,7 +38,18 @@ class UsersController < ApplicationController
       @member.last_name = "met deze expertise gevonden"
       @member.first_name = "Geen psychiater"
     end
+    get_markers
     render layout: 'memberlist'
+  end
+
+  def get_markers
+    @markers = @members.map do |psych|
+      {
+        lng: psych.lng,
+        lat: psych.lat,
+        title: "#{psych.first_name} #{psych.last_name}\n #{psych.practice_email}"
+      }
+    end
   end
 
   def get_all_members
@@ -56,8 +68,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @usertrainings = Usertraining.where(user_id: @user.id)
     @all_expertises = Expertise.all.drop(1)
+    render layout: 'user'
   end
 
   def update
@@ -67,7 +79,11 @@ class UsersController < ApplicationController
     else
       flash[:alert] = "Unauthorised action"
     end
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      # format.js # index.js.erb
+    end
+
   end
 
   def expertise
@@ -89,6 +105,18 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :tussenvoegsel, :last_name, :initials, :street, :streetnumber, :postalcode, :city, :phonenumber, :dob, :big, :practice_name, :practice_street, :practice_streetnumber, :practice_postalcode, :practice_city, :practice_email, :practice_phonenumber, :website, :contract, :buddy, :training_suggestion, :expertise_id, :waitingperiod, :newregistrations, :personal_data_public, :practice_data_public, :targetaudience_id, :expertise_id, :member, :expertises => [])
+    params.require(:user).permit(
+      :email, :first_name, :tussenvoegsel, :last_name,
+      :initials, :street, :streetnumber, :postalcode,
+      :city, :phonenumber, :dob, :big, :practice_name,
+      :practice_street, :practice_streetnumber,
+      :practice_postalcode, :practice_city,
+      :practice_email, :practice_phonenumber,
+      :website, :contract, :buddy, :training_suggestion,
+      :expertise_id, :waitingperiod, :newregistrations,
+      :personal_data_public, :practice_data_public,
+      :targetaudience_id, :expertise_id, :member,
+      :lat, :lng, :expertises => []
+    )
   end
 end

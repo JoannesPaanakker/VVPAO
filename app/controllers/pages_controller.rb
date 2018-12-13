@@ -25,6 +25,7 @@ class PagesController < ApplicationController
   end
 
   def psychiaters
+    get_users
     @noresults = false
     @expertises = Expertise.all.sort_by{ |expertise| expertise.name }
     # change name of first entry (000000)
@@ -56,7 +57,32 @@ class PagesController < ApplicationController
       @psychiater.last_name = "met deze expertise gevonden"
       @psychiater.first_name = "Geen psychiater"
     end
+    get_markers
     render layout: 'psychiaterslist'
+  end
+
+  def get_users
+    @allemaal = User.all
+    @all_psychs1 = @allemaal.map do |psych|
+      {
+        id: psych.id,
+        street: psych.practice_street,
+        city: psych.practice_city,
+        lat: psych.lat,
+      }
+    end
+    @all_psychs = @all_psychs1.to_json
+  end
+
+  def get_markers
+    @markers1 = @psychiaters.map do |psych|
+      {
+        lng: psych.lng,
+        lat: psych.lat,
+        title: "#{psych.first_name} #{psych.last_name}\n #{psych.practice_email}"
+      }
+    end
+    @markers = @markers1.to_json
   end
 
   def get_all_psychiaters
@@ -122,6 +148,18 @@ class PagesController < ApplicationController
   def contact
     @texts = Text.all
     @listitems = Listitem.all
+  end
+
+  def kaboom
+    @users = User.all;
+    @users.each do |u|
+      if u.lng
+        p u.lng
+      else
+        p u.last_name
+      end
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -38,7 +38,7 @@ class ExpertisesController < ApplicationController
   private
 
     def all_expertises
-      @expertises = Expertise.all.sort_by{ |exp| exp.name.downcase }
+      @expertises = Expertise.all.sort_by{ |exp| exp.name.downcase }.drop(1)
     end
 
     def set_expertise

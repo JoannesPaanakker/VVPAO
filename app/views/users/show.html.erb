@@ -170,14 +170,6 @@
               Tip voor nascholing: <%= @user.training_suggestion %> <br>
               Contract met verzekeraar: <%= @user.contract %> <br>
               Behoefte aan begeleiding door collega: <%= @user.buddy %> <br>
-              Gevolgde nascholing:<br>
-              <ul>
-                <% @usertrainings.each do |ut| %>
-                  <li>
-                    <%= ut.training.title %>, van <%= ut.training.start_date %> tot <%= ut.training.end_date %>
-                  </li>
-                <% end %>
-              </ul>
             </div>
           </div>
         </div>

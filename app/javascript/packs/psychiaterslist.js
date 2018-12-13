@@ -1,6 +1,9 @@
 import "bootstrap";
 import { expertiseFilter } from "./partials/expertisefilter"
 import { startMap } from "./partials/googlemaps"
-console.log("hello from psychiaterslist.js")
+import { getLatLng, getLatLngBatch } from "./partials/geocode"
 
+const dev001 = document.getElementById("kaboom").addEventListener("click", getLatLngBatch);
 startMap();
+
+console.log("hello from psychiaterslist.js")

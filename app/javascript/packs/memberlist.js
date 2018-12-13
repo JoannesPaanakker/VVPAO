@@ -3,4 +3,4 @@ import { toggleList } from "./partials/togglelist"
 import { expertiseFilter } from "./partials/expertisefilter"
 import { startMap } from "./partials/googlemaps"
 
-startMap;
+startMap();

@@ -41,14 +41,6 @@
         </select>
       </form>
     </div>
-    <div class="search-box">
-      <br>
-       <%= link_to users_path do %>
-        <div class="knop">
-          volledige lijst
-        </div>
-      <% end %>
-    </div>
   </div>
   <% if @noresults %>
     <div class="container-fluid">
@@ -65,11 +57,10 @@
   <% else %>
     <div class="container-fluid" id="list" style="display: block;">
       <div class="rowfluid">
-        <div class="col-xs-12 col-md-9 page-box">
+        <div class="col-xs-12 col-md-5 page-box">
           <table>
             <tr class="userlist">
               <th>Naam</th>
-              <th>Email</th>
               <th>Telefoonnummer</th>
               <th></th>
               <th></th>
@@ -78,9 +69,6 @@
               <tr class="userlist">
                 <td>
                   <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
-                </td>
-                <td>
-                  <%= u.email %>
                 </td>
                 <td>
                   <%= u.phonenumber %>
@@ -97,6 +85,11 @@
               </tr>
             <% end %>
           </table>
+        </div>
+        <div class="col-xs-12 col-md-7 googlemap">
+          <div id="map" data-markers="<%= @markers.to_json %>">
+
+          </div>
         </div>
       </div>
     </div>

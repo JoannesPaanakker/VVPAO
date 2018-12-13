@@ -1,0 +1,21 @@
+document.getElementById('ajax-test').innerHTML = "Ajax did it.";
+console.log("hello from update ajax");
+var geocoder = new google.maps.Geocoder();
+
+function codeAddress() {
+  var address = "<%= @user.practice_street %>, <%= @user.practice_city %>" ;
+  // var address = "amsterdam" ;
+  console.log("<%= @latlng %>");
+  console.log("<%= @user.practice_street %>, <%= @user.practice_city %>");
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == 'OK') {
+      console.log(results[0].geometry.location.lat());
+      console.log(results[0].geometry.location.lng());
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+codeAddress();
+// window.location = "<%= user_path(@user) %>";
