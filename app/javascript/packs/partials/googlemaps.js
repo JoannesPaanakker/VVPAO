@@ -5,16 +5,16 @@ function startMap(map) {
     zoom: 10
   });
   const markers = JSON.parse(document.getElementById('map').dataset.markers);
-  markers.forEach((marker) => {
-    var LatLng = new google.maps.LatLng(marker.lat, marker.lng);
+  markers.forEach((mark) => {
+    var LatLng = new google.maps.LatLng(mark.lat, mark.lng);
     var marker = new google.maps.Marker({
       position: LatLng,
       map: map,
-      title: marker.title
+      title: mark.title
     });
     marker.addListener('click', showInfo);
     function showInfo() {
-      alert(marker.title);
+      document.getElementById(`${mark.id}-mark`).click();
     }
   })
 }
