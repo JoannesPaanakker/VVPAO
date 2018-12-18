@@ -1,0 +1,19 @@
+
+/- @cms_site.blog_posts.order(published_at: :desc).each do |post|
+- @laatste_nieuws = @cms_site.blog_posts.last
+
+.nieuws-item
+  .nieuws-logo
+    = image_tag "logo.png"
+  .nieuws-inhoud
+    .nieuws-title
+      = link_to @laatste_nieuws.title, comfy_blog_post_path(@cms_site.path, @laatste_nieuws.year, @laatste_nieuws.month, @laatste_nieuws.slug)
+    .date
+
+      = @laatste_nieuws.published_at.day
+      = t("date.month_names")[@laatste_nieuws.published_at.month]
+      = @laatste_nieuws.published_at.year
+    .tekst
+      = @laatste_nieuws.content_cache.html_safe
+
+= link_to "lees verder", comfy_blog_post_path(@cms_site.path, @laatste_nieuws.year, @laatste_nieuws.month, @laatste_nieuws.slug), class: "knop knop-linksonder-home-inner-box"

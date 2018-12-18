@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get '/signout', to: 'devise/sessions#destroy', as: :signout
   # end
+  comfy_route :blog_admin, path: "/admin"
+  comfy_route :blog, path: "/blog"
   comfy_route :cms_admin, path: "/admin"
   # Ensure that this route is defined last
   comfy_route :cms, path: "/"

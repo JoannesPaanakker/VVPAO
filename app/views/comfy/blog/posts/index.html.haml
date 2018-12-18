@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-8.col-xs-12
+      %h3 VVPAO nieuws
+
+      - @blog_posts.each do |post|
+
+        .nieuws-item
+          .nieuws-logo
+            = image_tag "logo.png"
+          .nieuws-inhoud
+            .nieuws-title
+              = link_to post.title, comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug)
+            .date
+              = post.published_at.day
+              = t("date.month_names")[post.published_at.month]
+              = post.published_at.year
+            .tekst
+              = post.content_cache.html_safe
+
+            = link_to "lees verder", comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug), class: "knop knop-linksonder-home-inner-box"
+
+
+
+
+
+
+
+    .col-md-4.colxs-12
+
+      %h3 Archief
+      - dates_with_counts = @cms_site.blog_posts.published.group(:year, :month).order(year: :desc, month: :desc).count
+      - dates_with_counts.each do |(year, month), count|
+        %li
+          - date = [I18n.t("date.month_names")[month.to_i], year].join(" ")
+          / - site_path = @cms_site.url(relative: true)
+          = link_to date, comfy_blog_posts_of_month_path(@cms_site.path, year: year, month: month)
+          %small (#{count})
