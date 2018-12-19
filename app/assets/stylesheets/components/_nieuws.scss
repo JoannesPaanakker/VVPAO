@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.nieuws-item-show {
+  margin: 0px 0px 50px 0px;
+}
+
 .nieuws-inhoud {
   margin: 0px 0px 0px 10px;
 }
@@ -15,32 +19,46 @@
 }
 
 .nieuws-title {
+  height: 3em;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nieuws-title a:hover {
+  background-color: black;
 }
 
 .nieuws-item .tekst {
-  width: 450px;
-  height: 8em;
-  margin: 0px 0px 45px 0px;
+  height: 7.5em;
+  margin: 0px 0px 50px 0px;
   overflow: hidden;
 }
 
+.tekst a:hover {
+  background-color: black;
+}
+
+.linkinlist:hover {
+  background-color: black;
+}
+
 @media screen and (min-width: 601px) {
-  .nieuws-title {
-    width: 450px;
+  .width-show {
+    width: 600px;
   }
 
-  .nieuws-item .tekst {
+  .width-fp {
     width: 450px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .nieuws-title {
+  .width-show {
     width: 240px;
   }
 
-  .nieuws-item .tekst {
+  .width-fp {
     width: 240px;
   }
 }

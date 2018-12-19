@@ -1,83 +1,67 @@
 <div id="info" class="page-header header1">
   Welkom bij de <%= @texts[0].name  %>.
 </div>
-    <div class="blok">
-      <%= @texts[0].text %>
-      <div class="header2">
-        <%=  @texts[3].name %>
-      </div>
-        <%=  @texts[3].text %>
-      <ul>
-        <% @listitems.each do |li| %>
-          <% if li.text_id == @texts[3].id %>
-            <li> <%= li.text %> </li>
-          <% end %>
-        <% end %>
-      </ul>
-      <div class="header2">
-        <%=  @texts[4].name %>
-      </div>
-      <ul>
-        <% @listitems.each do |li| %>
-          <% if li.text_id == @texts[4].id %>
-            <li> <%= li.text %> </li>
-          <% end %>
-        <% end %>
-      </ul>
-      <div class="header2"><%= @texts[2].name  %></div>
-      <%= @texts[2].text %>
-    </div>
+<div class="blok">
+  <%= @texts[0].text %>
+  <div class="header2">
+    <%=  @texts[3].name %>
+  </div>
+    <%=  @texts[3].text %>
+  <ul>
+    <% @listitems.each do |li| %>
+      <% if li.text_id == @texts[3].id %>
+        <li> <%= li.text %> </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="header2">
+    <%=  @texts[4].name %>
+  </div>
+  <ul>
+    <% @listitems.each do |li| %>
+      <% if li.text_id == @texts[4].id %>
+        <li> <%= li.text %> </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="header2"><%= @texts[2].name  %></div>
+  <%= @texts[2].text %>
+</div>
 <div id="bestuur" class="page-header header1">
   Bestuur
 </div>
-    <div class="blok">
-      <div class="header2">
-        <%= @chair.description %>
+<div class="blok">
+  <div class="header2">
+    <%= @chair.description %>
+  </div>
+  <div class="user-index">
+    <div class="user-image">
+      <%= image_tag( @chair.user.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
+    </div>
+    <div class="user-data">
+      <%= @chair.user.first_name %> <%= @chair.user.last_name %>
+      <br>
+      <div class="link">
+        <%= mail_to @chair.user.email %>
       </div>
-      <div class="user-index">
-        <div class="user-image">
-          <%= image_tag( @chair.user.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
-        </div>
-        <div class="user-data">
-          <%= @chair.user.first_name %> <%= @chair.user.last_name %>
-          <br>
-          <div class="link">
-            <%= mail_to @chair.user.email %>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="header2">
+    <%= @treasurer.description %>
+  </div>
+  <div class="user-index">
+    <div class="user-image">
+      <%= image_tag( @treasurer.user.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
+    </div>
+    <div class="user-data">
+      <%= @treasurer.user.first_name %> <%= @treasurer.user.last_name %>
+      <br>
+      <div class="link">
+        <%= mail_to @treasurer.user.email%>
       </div>
-      <div class="header2">
-        <%= @treasurer.description %>
-      </div>
-      <div class="user-index">
-        <div class="user-image">
-          <%= image_tag( @treasurer.user.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
-        </div>
-        <div class="user-data">
-          <%= @treasurer.user.first_name %> <%= @treasurer.user.last_name %>
-          <br>
-          <div class="link">
-            <%= mail_to @treasurer.user.email%>
-          </div>
-        </div>
-      </div>
-      <% @bestuursleden.each do |bl| %>
-        <div class="header2">
-          <%= bl.description  %>
-        </div>
-        <div class="user-index">
-          <div class="user-image">
-            <%= image_tag( bl.user.profile_image_filename , class: "user-image", alt: "Foto persoon")  %>
-          </div>
-          <div class="user-data">
-            <%= bl.user.first_name %> <%= bl.user.last_name %>
-            <br>
-            <div class="link">
-              <%= mail_to bl.user.email %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    </div>
+  </div>
+
 </div>
 <div id="links" class="page-header header1">
   Links

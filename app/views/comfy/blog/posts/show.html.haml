@@ -1,14 +1,13 @@
 .container
   .row
     .col-md-8
-      %h3= @cms_post.title
-
-      %p
-        / - label = Comfy::Blog::Post.human_attribute_name(:published_on)
-        - label = "Gepubliceerd op"
-        - time  = @cms_post.published_at.to_formatted_s(:short)
-        = "#{label}: #{time}"
-
-      = @cms_post.content_cache.html_safe
+      .nieuws-item-show
+        %h3= @cms_post.title
+        .date
+          = @cms_post.published_at.day
+          = t("date.month_names")[@cms_post.published_at.month]
+          = @cms_post.published_at.year
+        .tekst
+          = @cms_post.content_cache.html_safe
 
       = link_to "Nieuwsberichten", comfy_blog_posts_path(@cms_site.path), class: "knop knop-linksonder-home-inner-box"

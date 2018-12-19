@@ -9,16 +9,16 @@
           .nieuws-logo
             = image_tag "logo.png"
           .nieuws-inhoud
-            .nieuws-title
+            .nieuws-title.width-index
               = link_to post.title, comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug)
             .date
               = post.published_at.day
               = t("date.month_names")[post.published_at.month]
               = post.published_at.year
-            .tekst
-              = post.content_cache.html_safe
+            / .tekst
+            /   = post.content_cache.html_safe
 
-            = link_to "lees verder", comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug), class: "knop knop-linksonder-home-inner-box"
+            / = link_to "lees verder", comfy_blog_post_path(@cms_site.path, post.year, post.month, post.slug), class: "knop knop-linksonder-home-inner-box"
 
 
 
@@ -34,5 +34,5 @@
         %li
           - date = [I18n.t("date.month_names")[month.to_i], year].join(" ")
           / - site_path = @cms_site.url(relative: true)
-          = link_to date, comfy_blog_posts_of_month_path(@cms_site.path, year: year, month: month)
+          = link_to date, comfy_blog_posts_of_month_path(@cms_site.path, year: year, month: month), class: "linkinlist"
           %small (#{count})
