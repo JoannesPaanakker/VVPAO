@@ -1,15 +1,15 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
   devise_for :users
-  # root to: 'pages#home'
-  root to: 'comfy/cms/content#show'
-  # get 'informatie', to: 'pages#informatie'
+  root to: 'pages#home'
+  # root to: 'comfy/cms/content#show'
+  get 'informatie', to: 'pages#informatie'
   get 'nascholing', to: 'pages#nascholing'
   get 'psychiaters', to: 'pages#psychiaters'
   get 'expertisefilter', to: 'pages#ajax_get_spychiaters_on_expertise'
-  # get 'lidmaatschap', to: 'pages#lidmaatschap'
-  # get 'klachten', to: 'pages#klachten'
-  # get 'contact', to: 'pages#contact'
+  get 'lidmaatschap', to: 'pages#lidmaatschap'
+  get 'klachten', to: 'pages#klachten'
+  get 'contact', to: 'pages#contact'
   get 'apply', to: 'pages#apply'
   get 'dashboard', to: 'admin#dashboard'
   get 'kaboom', to: 'pages#kaboom'
