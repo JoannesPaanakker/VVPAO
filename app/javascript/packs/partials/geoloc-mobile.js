@@ -3,7 +3,7 @@ function initGeolocMobile() {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }
   else {
-    console.log('Geolocation mobile or local is not supported');
+    console.log('Geolocation is not supported');
   }
 }
 
