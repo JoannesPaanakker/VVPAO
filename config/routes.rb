@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   # get 'lidmaatschap', to: 'pages#lidmaatschap'
   # get 'klachten', to: 'pages#klachten'
   # get 'contact', to: 'pages#contact'
-  get 'apply', to: 'pages#apply'
   get 'dashboard', to: 'admin#dashboard'
   get 'kaboom', to: 'pages#kaboom'
 
