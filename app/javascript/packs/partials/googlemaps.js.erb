@@ -4,13 +4,17 @@ function startMap(map) {
     center: {lat: 52.367145, lng: 4.886256},
     zoom: 10
   });
+  getMarkers(map);
+}
+
+function getMarkers(map) {
   const markers = JSON.parse(document.getElementById('map').dataset.markers);
   markers.forEach((mark) => {
     var LatLng = new google.maps.LatLng(mark.lat, mark.lng);
     var marker = new google.maps.Marker({
       position: LatLng,
       map: map,
-      title: mark.title
+      title: mark.title,
     });
     marker.addListener('click', showInfo);
     function showInfo() {
@@ -18,6 +22,5 @@ function startMap(map) {
     }
   })
 }
-
 
 export { startMap };

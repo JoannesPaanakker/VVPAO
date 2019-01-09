@@ -15,8 +15,9 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application.js' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}" %>
     <%= javascript_pack_tag 'psychiaterslist' %>
+    <%#= javascript_pack_tag 'hello_erb' %>
   </body>
 </html>

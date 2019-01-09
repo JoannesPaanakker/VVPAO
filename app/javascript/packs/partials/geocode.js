@@ -39,7 +39,7 @@ function saveLatLng(lat, lng, id) {
   var urll = '/users/' + id;
   // get session auth token: value of attribute "content" of element "meta", where name="csrf-token"
   var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-  // update booktext.text1
+  // update lat lng
   $.ajax({
     type: 'PATCH',
     url: urll,
@@ -53,6 +53,7 @@ function saveLatLng(lat, lng, id) {
       // alert('Ajax gedegradeerd!')
     }
   });
+
 }
 
 
