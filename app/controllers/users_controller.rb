@@ -108,11 +108,11 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :email, :first_name, :tussenvoegsel, :last_name,
-      :initials, :street, :streetnumber, :postalcode,
+      :initials, :title, :street, :streetnumber, :postalcode,
       :city, :phonenumber, :dob, :big, :practice_name,
       :practice_street, :practice_streetnumber,
       :practice_postalcode, :practice_city,
-      :practice_email, :practice_phonenumber,
+      :practice_email, :practice_phonenumber, :fax,
       :website, :contract, :buddy, :training_suggestion,
       :expertise_id, :waitingperiod, :newregistrations,
       :personal_data_public, :practice_data_public,

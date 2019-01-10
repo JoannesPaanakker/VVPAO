@@ -29,3 +29,6 @@ rails g migration AddContractToUser contract:boolean
 rails g migration AddExpertisesToUser expertises:text
 
 rails g migration AddLngLatToUser lng:float lat:float
+rails g migration AddConfirmableToUser confirmation_token:string confirmed_at:datetime confirmation_sent_at:datetime unconfirmed_email:string
+rails g migration AddFaxToUser fax:string
+rails g migration AddTitleToUser title:string
