@@ -17,6 +17,12 @@
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
           <%= f.input :first_name, label: "Voornaam",required: false %>
+          <div class="form-group row string optional user_tussenvoegsel">
+            <label class="col-sm-3 col-form-label string optional" for="user_tussenvoegsel">Tussenvoegsel</label>
+            <div class="col-sm-9">
+              <input class="form-control string optional" type="text" name="user[tussenvoegsel]" id="user_tussenvoegsel" placeholder="bijvoorbeeld: van der">
+            </div>
+          </div>
           <%= f.input :last_name, label: "Achternaam", required: true %>
           <%= f.input :street, label: "Straat en Huisnr.", required: true %>
           <%= f.input :postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: true  %>

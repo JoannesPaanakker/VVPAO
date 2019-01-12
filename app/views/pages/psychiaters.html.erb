@@ -77,10 +77,11 @@
           <% @psychiaters.each do |p| %>
             <tr class="userlist">
               <td>
-                <%= p.last_name  %>, <%= p.first_name %> <%= p.tussenvoegsel %>
+                <%= p.last_name  %>, <%= p.first_name %> <%= p.initials %> <%= p.tussenvoegsel %>
               </td>
               <td>
                 <%= p.practice_phonenumber %>
+                <%#= p.lat %>
               </td>
               <td>
                 <div id="<%= p.id %>-mark" class="knop-small" data-toggle="modal" data-target="#<%= p.id %>-details">
@@ -103,5 +104,6 @@
     </div>
   </div>
 <% end %>
+<%= link_to "testmail", testmail_path %>
 <a id="kaboom" data-psychs="<%= @all_psychs %>" href="#">kaboom</a>
 

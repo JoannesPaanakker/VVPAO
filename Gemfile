@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
 gem 'activestorage', '>= 5.2.1'
+gem 'actionmailer'
 
 gem 'sassc-rails'
 gem 'autoprefixer-rails'

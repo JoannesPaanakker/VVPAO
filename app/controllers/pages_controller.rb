@@ -151,15 +151,9 @@ class PagesController < ApplicationController
     @listitems = Listitem.all
   end
 
-  def kaboom
-    @users = User.all;
-    @users.each do |u|
-      if u.lng
-        p u.lng
-      else
-        p u.last_name
-      end
-    end
+  def testmail
+    @testmailuser = User.first
+    UserMailer.application(@testmailuser).deliver_now
     redirect_back(fallback_location: root_path)
   end
 

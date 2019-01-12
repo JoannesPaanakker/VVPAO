@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # get 'klachten', to: 'pages#klachten'
   # get 'contact', to: 'pages#contact'
   get 'dashboard', to: 'admin#dashboard'
-  get 'kaboom', to: 'pages#kaboom'
+  get 'testmail', to: 'pages#testmail'
 
   resources :users, only: [:show, :index, :update]
   resources :newsitems, only: [:create, :update, :destroy]

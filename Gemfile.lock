@@ -271,6 +271,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionmailer
   activestorage (>= 5.2.1)
   autoprefixer-rails
   bootsnap
