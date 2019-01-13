@@ -1,7 +1,7 @@
-<p>Hello <%= @email %>!</p>
+<p>Hallo <%= @email %>!</p>
 
 <% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+  <p>U ontvangt dit bericht omdat uw email adres op www.vvpao.amsterdam veranderd wordt in <%= @resource.unconfirmed_email %>.</p>
 <% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+  <p>U ontvangt dit bericht omdat uw email adres op www.vvpao.amsterdam veranderd is in<%= @resource.email %>.</p>
 <% end %>

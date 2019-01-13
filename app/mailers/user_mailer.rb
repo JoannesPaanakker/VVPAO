@@ -14,6 +14,6 @@ class UserMailer < ApplicationMailer
 
   def application(user)
     @user = user
-    mail(from: 'admin@VVPAO.com', to: 'j.paanakker@upcmail.nl', subject: 'Er heeft zich iemand aangemeld')
+    mail(to: 'j.paanakker@upcmail.nl', subject: 'Er heeft zich iemand aangemeld')
   end
 end

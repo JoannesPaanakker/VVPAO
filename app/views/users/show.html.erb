@@ -116,7 +116,9 @@
             </div>
             <div class="text-box-l">
               <%= render "partials/show_expertises" %>
-              <%= render "partials/edit_expertises" %>
+              <% if @user == current_user %>
+                <%= render "partials/edit_expertises" %>
+              <% end %>
               <br><br>
               <%= @user.practice_name %><br>
               <%= @user.practice_street %> <%= @user.practice_streetnumber %><br>
@@ -188,4 +190,7 @@
       </div>
     </div>
   </div>
+<% end %>
+<% if current_user.admin %>
+  <%= link_to "Dashboard", dashboard_path, class: "knop knop-linksonder-hoger" %>
 <% end %>

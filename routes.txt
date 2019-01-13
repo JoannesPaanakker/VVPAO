@@ -1,0 +1,131 @@
+                                               Prefix Verb   URI Pattern                                                                                      Controller#Action
+                                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                                       active_storage/blobs#show
+                            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format)         active_storage/representations#show
+                                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                                      active_storage/disk#show
+                            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                              active_storage/disk#update
+                                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                   active_storage/direct_uploads#create
+                                     new_user_session GET    /users/sign_in(.:format)                                                                         devise/sessions#new
+                                         user_session POST   /users/sign_in(.:format)                                                                         devise/sessions#create
+                                 destroy_user_session DELETE /users/sign_out(.:format)                                                                        devise/sessions#destroy
+                                    new_user_password GET    /users/password/new(.:format)                                                                    devise/passwords#new
+                                   edit_user_password GET    /users/password/edit(.:format)                                                                   devise/passwords#edit
+                                        user_password PATCH  /users/password(.:format)                                                                        devise/passwords#update
+                                                      PUT    /users/password(.:format)                                                                        devise/passwords#update
+                                                      POST   /users/password(.:format)                                                                        devise/passwords#create
+                             cancel_user_registration GET    /users/cancel(.:format)                                                                          devise/registrations#cancel
+                                new_user_registration GET    /users/sign_up(.:format)                                                                         devise/registrations#new
+                               edit_user_registration GET    /users/edit(.:format)                                                                            devise/registrations#edit
+                                    user_registration PATCH  /users(.:format)                                                                                 devise/registrations#update
+                                                      PUT    /users(.:format)                                                                                 devise/registrations#update
+                                                      DELETE /users(.:format)                                                                                 devise/registrations#destroy
+                                                      POST   /users(.:format)                                                                                 devise/registrations#create
+                                new_user_confirmation GET    /users/confirmation/new(.:format)                                                                devise/confirmations#new
+                                    user_confirmation GET    /users/confirmation(.:format)                                                                    devise/confirmations#show
+                                                      POST   /users/confirmation(.:format)                                                                    devise/confirmations#create
+                                                 root GET    /                                                                                                comfy/cms/content#show
+                                           nascholing GET    /nascholing(.:format)                                                                            pages#nascholing
+                                          psychiaters GET    /psychiaters(.:format)                                                                           pages#psychiaters
+                                      expertisefilter GET    /expertisefilter(.:format)                                                                       pages#ajax_get_spychiaters_on_expertise
+                                            dashboard GET    /dashboard(.:format)                                                                             admin#dashboard
+                                             testmail GET    /testmail(.:format)                                                                              pages#testmail
+                                                users GET    /users(.:format)                                                                                 users#index
+                                                 user GET    /users/:id(.:format)                                                                             users#show
+                                                      PATCH  /users/:id(.:format)                                                                             users#update
+                                                      PUT    /users/:id(.:format)                                                                             users#update
+                                            newsitems POST   /newsitems(.:format)                                                                             newsitems#create
+                                             newsitem PATCH  /newsitems/:id(.:format)                                                                         newsitems#update
+                                                      PUT    /newsitems/:id(.:format)                                                                         newsitems#update
+                                                      DELETE /newsitems/:id(.:format)                                                                         newsitems#destroy
+                                           expertises POST   /expertises(.:format)                                                                            expertises#create
+                                        new_expertise GET    /expertises/new(.:format)                                                                        expertises#new
+                                            expertise DELETE /expertises/:id(.:format)                                                                        expertises#destroy
+                                      targetaudiences POST   /targetaudiences(.:format)                                                                       targetaudiences#create
+                                   new_targetaudience GET    /targetaudiences/new(.:format)                                                                   targetaudiences#new
+                                       targetaudience DELETE /targetaudiences/:id(.:format)                                                                   targetaudiences#destroy
+                 form_fragments_comfy_admin_blog_post GET    /admin/sites/:site_id/blog-posts/:id/form_fragments(.:format)                                    comfy/admin/blog/posts#form_fragments
+                revert_comfy_admin_blog_post_revision PATCH  /admin/sites/:site_id/blog-posts/:blog_post_id/revisions/:id/revert(.:format)                    comfy/admin/blog/revisions/post#revert
+                      comfy_admin_blog_post_revisions GET    /admin/sites/:site_id/blog-posts/:blog_post_id/revisions(.:format)                               comfy/admin/blog/revisions/post#index
+                       comfy_admin_blog_post_revision GET    /admin/sites/:site_id/blog-posts/:blog_post_id/revisions/:id(.:format)                           comfy/admin/blog/revisions/post#show
+                               comfy_admin_blog_posts GET    /admin/sites/:site_id/blog-posts(.:format)                                                       comfy/admin/blog/posts#index
+                                                      POST   /admin/sites/:site_id/blog-posts(.:format)                                                       comfy/admin/blog/posts#create
+                            new_comfy_admin_blog_post GET    /admin/sites/:site_id/blog-posts/new(.:format)                                                   comfy/admin/blog/posts#new
+                           edit_comfy_admin_blog_post GET    /admin/sites/:site_id/blog-posts/:id/edit(.:format)                                              comfy/admin/blog/posts#edit
+                                comfy_admin_blog_post PATCH  /admin/sites/:site_id/blog-posts/:id(.:format)                                                   comfy/admin/blog/posts#update
+                                                      PUT    /admin/sites/:site_id/blog-posts/:id(.:format)                                                   comfy/admin/blog/posts#update
+                                                      DELETE /admin/sites/:site_id/blog-posts/:id(.:format)                                                   comfy/admin/blog/posts#destroy
+                             comfy_blog_posts_of_year GET    (/:cms_path)/blog/:year(.:format)                                                                comfy/blog/posts#index {:year=>/\d{4}/}
+                            comfy_blog_posts_of_month GET    (/:cms_path)/blog/:year/:month(.:format)                                                         comfy/blog/posts#index {:year=>/\d{4}/, :month=>/\d{1,2}/}
+                                      comfy_blog_post GET    (/:cms_path)/blog/:year/:month/:slug(.:format)                                                   comfy/blog/posts#show {:year=>/\d{4}/, :month=>/\d{1,2}/}
+                                     comfy_blog_posts GET    (/:cms_path)/blog(.:format)                                                                      comfy/blog/posts#index
+                                      comfy_admin_cms GET    /admin(.:format)                                                                                 comfy/admin/cms/base#jump
+                   reorder_comfy_admin_cms_site_pages PUT    /admin/sites/:site_id/pages/reorder(.:format)                                                    comfy/admin/cms/pages#reorder
+             form_fragments_comfy_admin_cms_site_page GET    /admin/sites/:site_id/pages/:id/form_fragments(.:format)                                         comfy/admin/cms/pages#form_fragments
+            revert_comfy_admin_cms_site_page_revision PATCH  /admin/sites/:site_id/pages/:page_id/revisions/:id/revert(.:format)                              comfy/admin/cms/revisions/page#revert
+                  comfy_admin_cms_site_page_revisions GET    /admin/sites/:site_id/pages/:page_id/revisions(.:format)                                         comfy/admin/cms/revisions/page#index
+                   comfy_admin_cms_site_page_revision GET    /admin/sites/:site_id/pages/:page_id/revisions/:id(.:format)                                     comfy/admin/cms/revisions/page#show
+              toggle_branch_comfy_admin_cms_site_page GET    /admin/sites/:site_id/pages/:id/toggle_branch(.:format)                                          comfy/admin/cms/pages#toggle_branch
+ form_fragments_comfy_admin_cms_site_page_translation GET    /admin/sites/:site_id/pages/:page_id/translations/:id/form_fragments(.:format)                   comfy/admin/cms/translations#form_fragments
+revert_comfy_admin_cms_site_page_translation_revision PATCH  /admin/sites/:site_id/pages/:page_id/translations/:translation_id/revisions/:id/revert(.:format) comfy/admin/cms/revisions/translation#revert
+      comfy_admin_cms_site_page_translation_revisions GET    /admin/sites/:site_id/pages/:page_id/translations/:translation_id/revisions(.:format)            comfy/admin/cms/revisions/translation#index
+       comfy_admin_cms_site_page_translation_revision GET    /admin/sites/:site_id/pages/:page_id/translations/:translation_id/revisions/:id(.:format)        comfy/admin/cms/revisions/translation#show
+               comfy_admin_cms_site_page_translations POST   /admin/sites/:site_id/pages/:page_id/translations(.:format)                                      comfy/admin/cms/translations#create
+            new_comfy_admin_cms_site_page_translation GET    /admin/sites/:site_id/pages/:page_id/translations/new(.:format)                                  comfy/admin/cms/translations#new
+           edit_comfy_admin_cms_site_page_translation GET    /admin/sites/:site_id/pages/:page_id/translations/:id/edit(.:format)                             comfy/admin/cms/translations#edit
+                comfy_admin_cms_site_page_translation GET    /admin/sites/:site_id/pages/:page_id/translations/:id(.:format)                                  comfy/admin/cms/translations#show
+                                                      PATCH  /admin/sites/:site_id/pages/:page_id/translations/:id(.:format)                                  comfy/admin/cms/translations#update
+                                                      PUT    /admin/sites/:site_id/pages/:page_id/translations/:id(.:format)                                  comfy/admin/cms/translations#update
+                                                      DELETE /admin/sites/:site_id/pages/:page_id/translations/:id(.:format)                                  comfy/admin/cms/translations#destroy
+                           comfy_admin_cms_site_pages GET    /admin/sites/:site_id/pages(.:format)                                                            comfy/admin/cms/pages#index
+                                                      POST   /admin/sites/:site_id/pages(.:format)                                                            comfy/admin/cms/pages#create
+                        new_comfy_admin_cms_site_page GET    /admin/sites/:site_id/pages/new(.:format)                                                        comfy/admin/cms/pages#new
+                       edit_comfy_admin_cms_site_page GET    /admin/sites/:site_id/pages/:id/edit(.:format)                                                   comfy/admin/cms/pages#edit
+                            comfy_admin_cms_site_page PATCH  /admin/sites/:site_id/pages/:id(.:format)                                                        comfy/admin/cms/pages#update
+                                                      PUT    /admin/sites/:site_id/pages/:id(.:format)                                                        comfy/admin/cms/pages#update
+                                                      DELETE /admin/sites/:site_id/pages/:id(.:format)                                                        comfy/admin/cms/pages#destroy
+                   reorder_comfy_admin_cms_site_files PUT    /admin/sites/:site_id/files/reorder(.:format)                                                    comfy/admin/cms/files#reorder
+                           comfy_admin_cms_site_files GET    /admin/sites/:site_id/files(.:format)                                                            comfy/admin/cms/files#index
+                                                      POST   /admin/sites/:site_id/files(.:format)                                                            comfy/admin/cms/files#create
+                        new_comfy_admin_cms_site_file GET    /admin/sites/:site_id/files/new(.:format)                                                        comfy/admin/cms/files#new
+                       edit_comfy_admin_cms_site_file GET    /admin/sites/:site_id/files/:id/edit(.:format)                                                   comfy/admin/cms/files#edit
+                            comfy_admin_cms_site_file PATCH  /admin/sites/:site_id/files/:id(.:format)                                                        comfy/admin/cms/files#update
+                                                      PUT    /admin/sites/:site_id/files/:id(.:format)                                                        comfy/admin/cms/files#update
+                                                      DELETE /admin/sites/:site_id/files/:id(.:format)                                                        comfy/admin/cms/files#destroy
+                 reorder_comfy_admin_cms_site_layouts PUT    /admin/sites/:site_id/layouts/reorder(.:format)                                                  comfy/admin/cms/layouts#reorder
+          revert_comfy_admin_cms_site_layout_revision PATCH  /admin/sites/:site_id/layouts/:layout_id/revisions/:id/revert(.:format)                          comfy/admin/cms/revisions/layout#revert
+                comfy_admin_cms_site_layout_revisions GET    /admin/sites/:site_id/layouts/:layout_id/revisions(.:format)                                     comfy/admin/cms/revisions/layout#index
+                 comfy_admin_cms_site_layout_revision GET    /admin/sites/:site_id/layouts/:layout_id/revisions/:id(.:format)                                 comfy/admin/cms/revisions/layout#show
+                         comfy_admin_cms_site_layouts GET    /admin/sites/:site_id/layouts(.:format)                                                          comfy/admin/cms/layouts#index
+                                                      POST   /admin/sites/:site_id/layouts(.:format)                                                          comfy/admin/cms/layouts#create
+                      new_comfy_admin_cms_site_layout GET    /admin/sites/:site_id/layouts/new(.:format)                                                      comfy/admin/cms/layouts#new
+                     edit_comfy_admin_cms_site_layout GET    /admin/sites/:site_id/layouts/:id/edit(.:format)                                                 comfy/admin/cms/layouts#edit
+                          comfy_admin_cms_site_layout PATCH  /admin/sites/:site_id/layouts/:id(.:format)                                                      comfy/admin/cms/layouts#update
+                                                      PUT    /admin/sites/:site_id/layouts/:id(.:format)                                                      comfy/admin/cms/layouts#update
+                                                      DELETE /admin/sites/:site_id/layouts/:id(.:format)                                                      comfy/admin/cms/layouts#destroy
+                reorder_comfy_admin_cms_site_snippets PUT    /admin/sites/:site_id/snippets/reorder(.:format)                                                 comfy/admin/cms/snippets#reorder
+         revert_comfy_admin_cms_site_snippet_revision PATCH  /admin/sites/:site_id/snippets/:snippet_id/revisions/:id/revert(.:format)                        comfy/admin/cms/revisions/snippet#revert
+               comfy_admin_cms_site_snippet_revisions GET    /admin/sites/:site_id/snippets/:snippet_id/revisions(.:format)                                   comfy/admin/cms/revisions/snippet#index
+                comfy_admin_cms_site_snippet_revision GET    /admin/sites/:site_id/snippets/:snippet_id/revisions/:id(.:format)                               comfy/admin/cms/revisions/snippet#show
+                        comfy_admin_cms_site_snippets GET    /admin/sites/:site_id/snippets(.:format)                                                         comfy/admin/cms/snippets#index
+                                                      POST   /admin/sites/:site_id/snippets(.:format)                                                         comfy/admin/cms/snippets#create
+                     new_comfy_admin_cms_site_snippet GET    /admin/sites/:site_id/snippets/new(.:format)                                                     comfy/admin/cms/snippets#new
+                    edit_comfy_admin_cms_site_snippet GET    /admin/sites/:site_id/snippets/:id/edit(.:format)                                                comfy/admin/cms/snippets#edit
+                         comfy_admin_cms_site_snippet PATCH  /admin/sites/:site_id/snippets/:id(.:format)                                                     comfy/admin/cms/snippets#update
+                                                      PUT    /admin/sites/:site_id/snippets/:id(.:format)                                                     comfy/admin/cms/snippets#update
+                                                      DELETE /admin/sites/:site_id/snippets/:id(.:format)                                                     comfy/admin/cms/snippets#destroy
+                      comfy_admin_cms_site_categories GET    /admin/sites/:site_id/categories(.:format)                                                       comfy/admin/cms/categories#index
+                                                      POST   /admin/sites/:site_id/categories(.:format)                                                       comfy/admin/cms/categories#create
+                    new_comfy_admin_cms_site_category GET    /admin/sites/:site_id/categories/new(.:format)                                                   comfy/admin/cms/categories#new
+                   edit_comfy_admin_cms_site_category GET    /admin/sites/:site_id/categories/:id/edit(.:format)                                              comfy/admin/cms/categories#edit
+                        comfy_admin_cms_site_category PATCH  /admin/sites/:site_id/categories/:id(.:format)                                                   comfy/admin/cms/categories#update
+                                                      PUT    /admin/sites/:site_id/categories/:id(.:format)                                                   comfy/admin/cms/categories#update
+                                                      DELETE /admin/sites/:site_id/categories/:id(.:format)                                                   comfy/admin/cms/categories#destroy
+                                comfy_admin_cms_sites GET    /admin/sites(.:format)                                                                           comfy/admin/cms/sites#index
+                                                      POST   /admin/sites(.:format)                                                                           comfy/admin/cms/sites#create
+                             new_comfy_admin_cms_site GET    /admin/sites/new(.:format)                                                                       comfy/admin/cms/sites#new
+                            edit_comfy_admin_cms_site GET    /admin/sites/:id/edit(.:format)                                                                  comfy/admin/cms/sites#edit
+                                 comfy_admin_cms_site PATCH  /admin/sites/:id(.:format)                                                                       comfy/admin/cms/sites#update
+                                                      PUT    /admin/sites/:id(.:format)                                                                       comfy/admin/cms/sites#update
+                                                      DELETE /admin/sites/:id(.:format)                                                                       comfy/admin/cms/sites#destroy
+                                 comfy_cms_render_css GET    /cms-css/:site_id/:identifier(/:cache_buster)(.:format)                                          comfy/cms/assets#render_css
+                                  comfy_cms_render_js GET    /cms-js/:site_id/:identifier(/:cache_buster)(.:format)                                           comfy/cms/assets#render_js
+                                comfy_cms_render_page GET    /(*cms_path)(.:format)                                                                           comfy/cms/content#show

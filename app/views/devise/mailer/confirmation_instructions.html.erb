@@ -1,5 +1,23 @@
-<p>Welcome <%= @email %>!</p>
+<h2>Aan <%= @resource.title  %> <%= @resource.last_name %>.</h2>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Uw aanmelding voor het lidmaatschap van de VVPAO is geregistreerd.</p>
+<p>Wij ontvangen graag een bevestiging van uw aanvraag door middel van de link onderaan dit bericht.</p>
+<p>Hiermee bevestigt u de aanvraag en de geldigheid van uw email adres.</p>
+<br>
+<p><%= link_to 'Bevestig mijn aanvraag en emailadres', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+Zodra uw lidmaatschapsaanvraag verwerkt is, krijgt u per email bericht dat uw account actief is.
+
+Bedankt voor uw interesse in de VVPAO,
+
+met vriendelijke groet,
+
+<h2>
+Vereniging van Vrijgevestigd Psychiaters Amsterdam en Omstreken
+</h2>
+Henriëtte Roland Holststraat 19 <br>
+1064TS Amsterdam <br>
+<a href="mailto:info@vvpao.amsterdam">
+    info@vvpao.amsterdam
+  </span>
+</a>

@@ -9,6 +9,13 @@ class User < ApplicationRecord
   has_many :usertrainings
   has_many :trainings, through: :usertrainings
 
+  after_commit :newuser, on: :create
+
+  def newuser
+     user = User.last
+     UserMailer.application(user).deliver_now
+  end
+
   # def password_required?
   #  false
   # end

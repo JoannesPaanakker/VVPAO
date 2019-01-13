@@ -23,6 +23,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem "comfortable_mexican_sofa", "~> 2.0.0"
 gem "figaro"
 gem "comfy_blog", "~> 2.0.0"
+gem "aws-sdk-s3", require: false
 
 group :development do
   gem 'web-console', '>= 3.3.0'

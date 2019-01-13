@@ -16,6 +16,7 @@
                       input_html: { autocomplete: "email" }%>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
+          <%= f.input :title, label: "aanhef",required: false %>
           <%= f.input :first_name, label: "Voornaam",required: false %>
           <div class="form-group row string optional user_tussenvoegsel">
             <label class="col-sm-3 col-form-label string optional" for="user_tussenvoegsel">Tussenvoegsel</label>
@@ -25,10 +26,10 @@
           </div>
           <%= f.input :last_name, label: "Achternaam", required: true %>
           <%= f.input :street, label: "Straat en Huisnr.", required: true %>
-          <%= f.input :postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: true  %>
+          <%= f.input :postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: false  %>
           <%= f.input :city, label: "Stad", required: true  %>
           <%= f.input :phonenumber, label: "Tel. nummer", required: true  %>
-          <%= f.input :newregistrations, label: "Neem nieuwe patienten aan", required: true  %>
+          <%= f.input :newregistrations, label: "Neem nieuwe patienten aan", required: false  %>
           <!-- <div class="flex">
           <span class="gob">Geboortedatum:</span>
           <%#= f.input :dob, start_year: Date.today.year - 80,
@@ -46,7 +47,7 @@
           <%= f.input :practice_phonenumber, label: "Tel. Nummer praktijk", required: false  %>
           <%= f.input :website, required: false  %>
           <%= f.input :contract, label: "Heeft u een contract met een verzekeraar?", required: true  %>
-          <%= f.input :buddy, label: "Heeft u behoefte aan een collega/gids/vraagbaak die u opweg kan helpen?", required: true  %>
+          <%= f.input :buddy, label: "Heeft u behoefte aan een collega/gids/vraagbaak die u opweg kan helpen?", required: false  %>
           <%= f.input :training_suggestion, label: "Heeft u wensen of tips t.a.v. het  nascholingsprogramma?", required: false  %>
         </div>
 

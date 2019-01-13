@@ -18,6 +18,28 @@ a {
   color: $base;
 }
 
+.knop-breed {
+  height: 30px;
+  width: 300px;
+  box-shadow: -4px 4px $vvpao2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: $plight;
+  background: $vvpao3;
+  cursor: pointer;
+}
+
+.knop-flex > a {
+  color: $plight;
+}
+
+.knop-flex a:hover {
+  background: $vvpao4;
+  color: $pdark;
+}
+
 .knop > a {
   color: $plight;
 }
@@ -124,6 +146,12 @@ body {
   position: absolute;
   left: 35px;
   bottom: 230px;
+}
+
+.knop-linksonder-nog-hoger {
+  position: absolute;
+  left: 35px;
+  bottom: 290px;
 }
 
 .knop-linksonder-mobile {
