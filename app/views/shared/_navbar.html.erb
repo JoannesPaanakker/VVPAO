@@ -30,10 +30,7 @@
       <%= link_to "Lidmaatschap", "/lidmaatschap", class: "navbarlink" %>
     </div>
     <div class="hidden-xs navbar-item">
-      <%= link_to "Nascholing", nascholing_path, class: "navbarlink" %>
-    </div>
-    <div class="hidden-xs navbar-item">
-      <%= link_to "Nieuws", "/blog", class: "navbarlink" %>
+      <%= link_to "Nascholing", "/blog", class: "navbarlink" %>
     </div>
     <div class="hidden-xs navbar-item">
       <%= link_to "Contact", "/contact", class: "navbarlink" %>
@@ -54,7 +51,12 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
             <li>
               <%= link_to users_path do %>
-                <i class="fas fa-list-ul"></i> Leden index
+                <i class="fas fa-list-ul"></i> Leden
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "/nascholing-bestanden" do %>
+                <i class="fas fa-list-ul"></i> Bestanden
               <% end %>
             </li>
             <li>
@@ -116,10 +118,7 @@
           <%= link_to "Lidmaatschap", "/lidmaatschap", class: "navbarlink" %>
         </li>
         <li>
-          <%= link_to "Nascholing", nascholing_path, class: "navbarlink" %>
-        </li>
-        <li>
-          <%= link_to "Nieuws", "/blog", class: "navbarlink" %>
+          <%= link_to "Nascholing", "/blog", class: "navbarlink" %>
         </li>
         <li>
           <%= link_to "Contact", "/contact", class: "navbarlink" %>
@@ -134,7 +133,12 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
               <li>
                 <%= link_to users_path do %>
-                  <i class="fas fa-list-ul"></i> Leden index
+                  <i class="fas fa-list-ul"></i> Leden
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "/nascholing-bestanden" do %>
+                  <i class="fas fa-list-ul"></i> Bestanden
                 <% end %>
               </li>
               <li>
