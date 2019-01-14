@@ -1,3 +1,13 @@
+.practice-link {
+  background-color: $pdark;
+  color: white;
+}
+
+.practice-link:hover {
+  background-color: grey;
+  color: $pdark;
+}
+
 .profile-header {
   margin: 10px 60px 0px;
 }
