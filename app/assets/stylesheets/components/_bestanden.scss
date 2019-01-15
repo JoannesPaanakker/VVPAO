@@ -1,13 +1,8 @@
-.bestanden {
-  border: solid 1px black;
+.page-box >ol >li >a {
+  color: $base;
+  text-decoration: underline;
 }
 
-.bestanden >tbody >tr {
-  height: 35px;
-}
-
-.bestanden >tbody >tr >td, .bestanden >tbody >tr >th  {
-  min-width: 150px;
-  padding: 5px;
-  border: solid 1px black;
+.page-box >ol >li >a:hover {
+  background-color: $base;
 }
