@@ -20,26 +20,15 @@
           <div class="page-header header1">
             Persoonlijke informatie
           </div>
-          <%= f.input :title, label: "aanhef",required: false %>
+          <%= f.input :title, label: "aanhef",required: false, placeholder: "de heer, mevrouw, Drs." %>
           <%= f.input :first_name, label: "Voornaam",required: false %>
-          <div class="form-group row string optional user_tussenvoegsel">
-            <label class="col-sm-3 col-form-label string optional" for="user_tussenvoegsel">Tussenvoegsel</label>
-            <div class="col-sm-9">
-              <input class="form-control string optional" type="text" name="user[tussenvoegsel]" id="user_tussenvoegsel" placeholder="bijvoorbeeld: van der">
-            </div>
-          </div>
+          <%= f.input :tussenvoegsel, label: "Tussenvoegsel", required: false, placeholder: "van der of de" %>
           <%= f.input :last_name, label: "Achternaam", required: true %>
           <%= f.input :street, label: "Straat en Huisnr.", required: true %>
           <%= f.input :postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: false  %>
-          <%= f.input :city, label: "Stad", required: true, placeholder: "Amsterdam" %>
+          <%= f.input :city, label: "Stad", required: true %>
           <%= f.input :phonenumber, label: "Tel. nummer", required: true  %>
           <%= f.input :newregistrations, label: "Neem nieuwe patienten aan", required: false  %>
-          <!-- <div class="flex">
-          <span class="gob">Geboortedatum:</span>
-          <%#= f.input :dob, start_year: Date.today.year - 80,
-                              end_year: Date.today.year - 20,
-                              required: true, label: false  %>
-          </div> -->
           <%= f.association :expertise, label: "Specifieke deskundigheid", required: false  %>
           <%= f.association :targetaudience, label: "Patientengroep", required: false  %>
           <%= f.input :big, label: "BIG-nummer", required: false  %>

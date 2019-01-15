@@ -1,17 +1,17 @@
-<div class="modal" id="de-activate<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="de-activate<%= @user.id %>" aria-hidden="true">
+<div class="modal" id="remove-admin<%= @admin.id %>" tabindex="-1" role="dialog" aria-labelledby="remove-admin<%= @admin.id %>" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <%= @user.first_name %> <%= @user.initials %> <%= @user.last_name %>
+        <%= @admin.first_name %> <%= @admin.initials %> <%= @admin.last_name %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@user, url: user_path(@user), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
+        <%= simple_form_for(@admin, url: user_path(@admin), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
 
           <div class="form-inputs">
-            <%= f.input :member, label: "Lid geactiveerd", required: false  %>
+            <%= f.input :admin, label: "Administrator", required: false  %>
           </div>
 
           <div class="form-actions">

@@ -1,7 +1,8 @@
-<div class="modal" id="activate" tabindex="-1" role="dialog" aria-labelledby="activate" aria-hidden="true">
+<div class="modal" id="activate<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="activate<%= @user.id %>" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <%= @user.first_name %> <%= @user.initials %> <%= @user.last_name %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,6 +11,7 @@
         <%= simple_form_for(@user, url: user_path(@user), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
 
           <div class="form-inputs">
+            <input type="hidden" name="activate" value="on">
             <%= f.input :member, label: "Lid geactiveerd", required: false  %>
           </div>
 

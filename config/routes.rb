@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'admin#dashboard'
   get 'testmail', to: 'pages#testmail'
 
-  resources :users, only: [:show, :index, :update]
+  resources :users, only: [:show, :index, :update, :destroy]
   resources :newsitems, only: [:create, :update, :destroy]
   resources :expertises, only: [:new, :create, :destroy]
   resources :targetaudiences, only: [:new, :create, :destroy]

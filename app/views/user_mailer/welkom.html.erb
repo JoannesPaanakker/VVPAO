@@ -1,0 +1,24 @@
+<h2>Welkom bij de VVPAO, <%= @user.title  %> <%= @user.initials  %> <%= @user.first_name  %> <%= @user.last_name %>.</h2>
+
+<p>
+  Uw login account op de VVPAO site is nu actief en u kunt inloggen via de volgende link met uw email-adres <%= @user.email %> en het wachtwoord dat u opgegeven heeft bij aanmelding:
+</p>
+<p>
+  <%= link_to 'Login bij VVPAO', new_user_session_url %>
+</p>
+
+<p>
+  Indien u het wachtwoord vergeten bent kunt u dit resetten via deze pagina.
+</p>
+
+met vriendelijke groet,
+
+<h2>
+Vereniging van Vrijgevestigd Psychiaters Amsterdam en Omstreken
+</h2>
+Henriëtte Roland Holststraat 19 <br>
+1064TS Amsterdam <br>
+<a href="mailto:info@vvpao.amsterdam">
+    info@vvpao.amsterdam
+  </span>
+</a>

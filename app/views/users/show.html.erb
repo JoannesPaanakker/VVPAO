@@ -192,5 +192,13 @@
   </div>
 <% end %>
 <% if current_user.admin %>
+  <% if @user.member == false %>
+    <%= link_to "Delete", @user,  remote: true, data: { confirm: "Delete #{@user.first_name} #{@user.initials} #{@user.last_name}?" }, method: :delete, class: "knop-small knop-linksonder-nog-hoger" %>
+  <% else %>
+    <div class="knop-small knop-linksonder-nog-hoger" data-toggle="modal" data-target="#admin">
+      admin
+    </div>
+    <%= render 'partials/add-admin' %>
+  <% end %>
   <%= link_to "Dashboard", dashboard_path, class: "knop knop-linksonder-hoger" %>
 <% end %>

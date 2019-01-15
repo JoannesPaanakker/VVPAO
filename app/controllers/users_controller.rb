@@ -74,9 +74,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @activate = params[:activate]
     @user = User.find(params[:id])
     if @user == current_user || current_user.admin
       @user.update!(user_params)
+      if @activate == "on"
+       UserMailer.welkom(@user).deliver_now
+      end
     else
       flash[:alert] = "Unauthorised action"
     end
@@ -98,6 +102,24 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    check_if_user_disabled(@user)
+    if @user_disabled
+      @user.destroy!
+    else
+      flash[:alert] = "Dit account is nog actief. Account moet disabled zijn om het te kunnen verwijderen."
+    end
+  end
+
+  def check_if_user_disabled(user)
+    if user.member
+      @user_disabled = false
+    else
+      @user_disabled = true
+    end
+  end
+
   private
   def search_params
     if params[:search].present?
@@ -107,7 +129,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :email, :first_name, :tussenvoegsel, :last_name,
+      :admin, :email, :first_name, :tussenvoegsel, :last_name,
       :initials, :title, :street, :streetnumber, :postalcode,
       :city, :phonenumber, :dob, :big, :practice_name,
       :practice_street, :practice_streetnumber,

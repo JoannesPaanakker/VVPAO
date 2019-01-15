@@ -2,6 +2,7 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
+    @administrators = User.where(admin: true)
     @newusers = User.where(member: false)
     @members = User.where(member: true).sort_by{ |user| user.last_name }
     @expertises = Expertise.all.drop(1).sort_by{ |exp| exp.name.downcase }

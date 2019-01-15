@@ -1,4 +1,4 @@
-<div class="modal" id="de-activate<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="de-activate<%= @user.id %>" aria-hidden="true">
+<div class="modal" id="admin" tabindex="-1" role="dialog" aria-labelledby="admin" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,7 +11,7 @@
         <%= simple_form_for(@user, url: user_path(@user), html: { method: :put }, wrapper: :horizontal_form) do |f| %>
 
           <div class="form-inputs">
-            <%= f.input :member, label: "Lid geactiveerd", required: false  %>
+            <%= f.input :admin, label: "Administrator", required: false  %>
           </div>
 
           <div class="form-actions">

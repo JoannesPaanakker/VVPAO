@@ -5,6 +5,35 @@
   <div class="row-fluid">
     <div class="col-xs-12 page-box">
       <% if current_user.admin  %>
+        <div class="header1">
+          Administrators:
+        </div>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <table>
+              <tr class="userlist">
+                <th>Naam</th>
+                <th></th>
+              </tr>
+              <% @administrators.each do |admin| %>
+                <tr class="userlist">
+                  <td>
+                  <%= admin.first_name %> <%= admin.initials %> <%= admin.last_name %>
+                  </td>
+                  <td>
+                    <% if admin != current_user %>
+                      <% @admin = admin %>
+                      <div class="knop" data-toggle="modal" data-target="#remove-admin<%= admin.id %>">
+                        disable admin
+                      </div>
+                      <%= render 'partials/remove-admin' %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
         <div id="index" class="header1">
           Aspirant leden VVPAO
         </div>
@@ -13,8 +42,8 @@
             <table>
               <tr class="userlist">
                 <th>Naam</th>
-                <th>Email</th>
-                <th>Telefoonnummer</th>
+                <th class="hidden-xs">Email</th>
+                <th class="hidden-xs">Telefoonnummer</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -24,10 +53,10 @@
                   <td>
                     <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
                   </td>
-                  <td>
+                  <td class="hidden-xs">
                     <%= u.email %>
                   </td>
-                  <td>
+                  <td class="hidden-xs">
                     <%= u.phonenumber %>
                   </td>
                   <td>
@@ -36,7 +65,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="knop-small" data-toggle="modal" data-target="#activate">
+                    <div class="knop-small" data-toggle="modal" data-target="#activate<%= u.id %>">
                       activeer
                     </div>
                     <% @user = u %>
@@ -55,8 +84,8 @@
             <table>
               <tr class="userlist">
                 <th>Naam</th>
-                <th>Email</th>
-                <th>Telefoonnummer</th>
+                <th class="hidden-xs">Email</th>
+                <th class="hidden-xs">Telefoonnummer</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -66,10 +95,10 @@
                   <td>
                     <%= u.last_name  %>, <%= u.first_name %> <%= u.tussenvoegsel %>
                   </td>
-                  <td>
+                  <td class="hidden-xs">
                     <%= u.email %>
                   </td>
-                  <td>
+                  <td class="hidden-xs">
                     <%= u.phonenumber %>
                   </td>
                   <td>
@@ -78,7 +107,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="knop-small" data-toggle="modal" data-target="#de-activate">
+                    <div class="knop-small" data-toggle="modal" data-target="#de-activate<%= u.id %> ">
                       disable
                     </div>
                     <% @user = u %>
@@ -105,9 +134,6 @@
               </div>
               <%= render 'partials/target-audiences' %>
             </div>
-
-
-
           </div>
         </div>
       <% else %>

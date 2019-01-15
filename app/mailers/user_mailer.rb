@@ -8,8 +8,8 @@ class UserMailer < ApplicationMailer
   def welkom(user)
     @user = user
 
-    # mail to: @user.email, suject: 'welkom als nieuw lid van de VVPAO website'
-    mail(to: 'j.paanakker@upcmail.nl', subject: 'welkom als nieuw lid van de VVPAO website')
+    mail(to: @user.email, subject: 'Account op VVPAO website geactiveerd')
+    # mail(to: 'j.paanakker@upcmail.nl', subject: 'welkom als nieuw lid van de VVPAO website')
   end
 
   def application(user)
