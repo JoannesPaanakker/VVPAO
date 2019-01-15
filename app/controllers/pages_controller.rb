@@ -152,8 +152,9 @@ class PagesController < ApplicationController
   end
 
   def testmail
-    @testmailuser = User.first
-    UserMailer.application(@testmailuser).deliver_now
+    # @testmailuser = User.first
+    # UserMailer.application(@testmailuser).deliver_now
+    UserMailer.test.deliver_now
     redirect_back(fallback_location: root_path)
   end
 

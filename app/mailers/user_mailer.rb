@@ -14,6 +14,11 @@ class UserMailer < ApplicationMailer
 
   def application(user)
     @user = user
-    mail(to: 'j.paanakker@upcmail.nl', subject: 'Er heeft zich iemand aangemeld')
+    mail(to: ['j.paanakker@upcmail.nl', 'cadvries@hotmail.com'], subject: 'Er heeft zich iemand aangemeld')
   end
+
+  def test
+    mail(to: ['j.paanakker@upcmail.nl', 'paanakker@brill.com'], subject: 'Er heeft zich iemand aangemeld')
+  end
+
 end
