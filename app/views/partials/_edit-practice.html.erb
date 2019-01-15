@@ -3,6 +3,7 @@
   <div class="form-inputs">
     <input type="hidden" name="user[lat]" id="input-lat" value="<%= @user.lat %>">
     <input type="hidden" name="user[lng]" id="input-lng" value="<%= @user.lng %>">
+    <%= f.input :practice_name, label: "Praktijknaam:", required: false %>
     <%= f.input :practice_street, label: "Straat & huisnr. ", input_html: { class: 'input-straat' }, required: false %>
     <%= f.input :practice_postalcode, label: "Postcode", input_html: { class: 'input-postcode' }, required: false  %>
     <%= f.input :practice_city, label: "Stad", input_html: { class: 'input-plaats' }, required: false  %>
