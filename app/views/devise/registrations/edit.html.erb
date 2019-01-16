@@ -1,29 +1,42 @@
-<h2><%= resource_name.to_s.humanize %></h2>
+<div class="page-header header1">
+  Pas email adres en/of wachtwoord aan voor <%= resource.first_name %> <%= resource.initials %> <%= resource.tussenvoegsel %> <%= resource.last_name %>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-xs-12 col-sm-8 col-md-6 page-box">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <%= f.input :password,
-                hint: "Laat leeg als je dit niet wil veranderen",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "vul je bestaande wachtwoord in",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+          <%= f.input :password,
+                      label: "Nieuw wachtwoord",
+                      hint: "Laat leeg als je dit niet wil veranderen",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      label: "Herhaling nieuw Wachtwoord",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      label: "Huidig wachtwoord",
+                      hint: "vul je bestaande wachtwoord in",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Pas aan", class: "knop" %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+
