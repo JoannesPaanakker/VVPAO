@@ -48,15 +48,37 @@
           <% else %>
             <%= image_tag "user-default.png", class: "avatar dropdown-toggle", id: "navbar-menu", "data-toggle" => "dropdown" %>
           <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu breed">
             <li>
               <%= link_to users_path do %>
                 <i class="fas fa-list-ul"></i> Leden
               <% end %>
             </li>
+            <li class="submenu">
+              <div class="navbar-item">
+              <div class="dropdown dropdown-sub">
+                <!-- <i class="fas fa-list-ul dropdown-toggle submenu" data-toggle="dropdown"></i> Handouts -->
+                <span class="dropdown-toggle submenu" data-toggle="dropdown">Nascholing Handouts</span>
+                <ul class="dropdown-sub-menu dropdown-menu-right navbar-dropdown-menu list-unstyled">
+                  <li>
+                    <%= link_to "2019", "/nascholing-2019" %>
+                  </li>
+                  <li>
+                    <%= link_to "2018", "/nascholing-2018" %>
+                  </li>
+                  <li>
+                    <%= link_to "2017", "/nascholing-2017" %>
+                  </li>
+                  <li>
+                    <%= link_to "2016", "/nascholing-2016" %>
+                  </li>
+                </ul>
+              </div>
+              </div>
+            </li>
             <li>
-              <%= link_to "/nascholing-bestanden" do %>
-                <i class="fas fa-list-ul"></i> Bestanden
+              <%= link_to "/agenda" do %>
+                <i class="fa fa-calendar" aria-hidden="true"></i> Agenda
               <% end %>
             </li>
             <li>
@@ -137,8 +159,25 @@
                 <% end %>
               </li>
               <li>
+                <i class="fas fa-list-ul dropdown-toggle fa-size" data-toggle="dropdown"></i> Handouts
+                <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+                  <li>
+                    <%= link_to "2019", "/nascholing-2019" %>
+                  </li>
+                  <li>
+                    <%= link_to "2018", "/nascholing-2018" %>
+                  </li>
+                  <li>
+                    <%= link_to "2017", "/nascholing-2017" %>
+                  </li>
+                  <li>
+                    <%= link_to "2016", "/nascholing-2016" %>
+                  </li>
+                </ul>
+              </li>
+              <li>
                 <%= link_to "/nascholing-bestanden" do %>
-                  <i class="fas fa-list-ul"></i> Bestanden
+                  <i class="fas fa-list-ul"></i> Handouts Nascholing
                 <% end %>
               </li>
               <li>
