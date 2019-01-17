@@ -20,4 +20,4 @@ yarn-error.log
 # Ignore application configuration
 /config/application.yml
 # Ignore seeds
-/db/seeds.rb
+/db/seeds.org.rb
