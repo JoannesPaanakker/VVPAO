@@ -1,1 +1,4 @@
 heroku pg:push VVPAO_development DATABASE_URL --app vvpao
+
+
+heroku pg:pull DATABASE_URL VVPAO_development --app vvpao
