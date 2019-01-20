@@ -15,6 +15,12 @@ function getMarkers(map) {
       position: LatLng,
       map: map,
       title: mark.title,
+      icon: {
+        // url: "http://maps.google.com/mapfiles/ms/icons/red-pushpin.png",
+        // scaledSize: new google.maps.Size(20, 20)
+        url: "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png",
+        scaledSize: new google.maps.Size(16, 24)
+      }
     });
     marker.addListener('click', showInfo);
     function showInfo() {

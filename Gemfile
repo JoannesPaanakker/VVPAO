@@ -11,9 +11,11 @@ gem 'redis'
 gem 'activestorage', '>= 5.2.1'
 gem 'actionmailer'
 
-gem 'sassc-rails'
+gem 'bootstrap-sass', '~> 3.4.0'
+gem 'sassc-rails', '>= 2.0.0'
+
+
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
 gem 'uglifier'
