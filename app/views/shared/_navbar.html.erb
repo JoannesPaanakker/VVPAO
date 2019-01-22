@@ -5,6 +5,9 @@
       <%= image_tag "logo.png" %>
     <% end %>
     <div class="navbar-item">
+      <%= link_to "Home", root_path, class: "navbarlink" %>
+    </div>
+    <div class="navbar-item">
       <div class="dropdown">
         <span class="dropdown-toggle navbarlink" data-toggle="dropdown">Algemeen</span>
         <ul class="dropdown-menu dropdown-menu-left navbar-dropdown-menu">
@@ -23,16 +26,35 @@
         </ul>
       </div>
     </div>
-    <div class="hidden-xs navbar-item">
+    <div class="navbar-item">
       <%= link_to "Psychiaters", psychiaters_path, class: "navbarlink" %>
     </div>
-    <div class="hidden-xs navbar-item">
+    <div class="navbar-item">
       <%= link_to "Lidmaatschap", "/lidmaatschap", class: "navbarlink" %>
     </div>
-    <div class="hidden-xs navbar-item">
-      <%= link_to "Nascholing", "/blog", class: "navbarlink" %>
+    <div class="navbar-item">
+      <%= link_to "Nieuws", "/blog", class: "navbarlink" %>
     </div>
-    <div class="hidden-xs navbar-item">
+    <div class="navbar-item">
+      <div class="dropdown">
+        <span class="dropdown-toggle navbarlink" data-toggle="dropdown">Nascholing</span>
+        <ul class="dropdown-menu dropdown-menu-left navbar-dropdown-menu">
+          <li>
+            <%= link_to "2019", "/nascholing-2019-pub" %>
+          </li>
+          <li>
+            <%= link_to "2018", "/nascholing-2018-pub" %>
+          </li>
+          <li>
+            <%= link_to "2017", "/nascholing-2017-pub" %>
+          </li>
+          <li>
+            <%= link_to "2016", "/nascholing-2016-pub" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-item">
       <%= link_to "Contact", "/contact", class: "navbarlink" %>
     </div>
   </div>
@@ -65,7 +87,20 @@
           <%= link_to "Lidmaatschap", "/lidmaatschap", class: "navbarlink" %>
         </li>
         <li>
-          <%= link_to "Nascholing", "/blog", class: "navbarlink" %>
+          <%= link_to "Nieuws", "/blog", class: "navbarlink" %>
+        </li>
+
+        <li>
+          <%= link_to "nascholing 2019", "/nascholing-2019-pub" %>
+        </li>
+        <li>
+          <%= link_to "nascholing 2018", "/nascholing-2018-pub" %>
+        </li>
+        <li>
+          <%= link_to "nascholing 2017", "/nascholing-2017-pub" %>
+        </li>
+        <li>
+          <%= link_to "nascholing 2016", "/nascholing-2016-pub" %>
         </li>
         <li>
           <%= link_to "Contact", "/contact", class: "navbarlink" %>
