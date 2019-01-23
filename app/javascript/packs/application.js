@@ -1,6 +1,10 @@
 import "bootstrap";
 import { cancelNewExp } from "./partials/cancel";
 import { cancelNewAud } from "./partials/cancel-aud";
-console.log("Hello from application.js");
+import { setBorder } from './partials/set-border';
+
+setBorder();
 cancelNewExp();
 cancelNewAud();
+
+console.log("Hello from application.js");

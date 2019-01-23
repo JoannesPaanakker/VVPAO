@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get 'nascholing', to: 'pages#nascholing'
   get 'psychiaters', to: 'pages#psychiaters'
   get 'expertisefilter', to: 'pages#ajax_get_spychiaters_on_expertise'
-  get 'test', to: 'pages#test'
+  # get 'test', to: 'pages#test'
   get 'dashboard', to: 'admin#dashboard'
-  get 'testmail', to: 'pages#testmail'
+  # get 'testmail', to: 'pages#testmail'
 
   resources :users, only: [:show, :index, :update, :destroy]
   resources :newsitems, only: [:create, :update, :destroy]

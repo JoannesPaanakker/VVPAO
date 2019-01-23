@@ -144,7 +144,7 @@ class PagesController < ApplicationController
   end
 
   def test
-
+    render layout: 'test'
   end
 
   private

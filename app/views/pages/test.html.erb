@@ -1,62 +1,71 @@
 <div class="page-header header1">
-  <!-- {{ cms:text header}} -->
-  Nascholing 2023
+  {{ cms:text header}}
 </div>
-<div class="container-fluid sub-page">
-  <div class="row-fluid">
-    <div class="col-xs-12 col-sm-10 col-md-8 page-box"><!--
-      {{ cms:wysiwyg text1 }} -->
-      <table>
-        <tr>
-          <img src="assets/vvpao-event.png" alt="Image of event" class="user-image">
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+<div class="blok">
+  <div class="header2">
+    {{ cms:text header-ns1}}
+  </div>
+  <div class="nascholing-index">
+    <div class="nascholing-image hidden-xs">
+      {{ cms:file fotons1, as: image, label: "Nascholing1" }}
+    </div>
+    <div class="nascholing-data box-border">
+      {{ cms:wysiwyg text-ns1}}
+      <% if current_user %>
+        <div>
+          {{ cms:wysiwyg links-ns1 }}
+        </div>
+      <% else %>
+        <div>
+        {{ cms:text txt1-p}}
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="blok">
   <div class="header2">
-      Header lkjsldfkjal
+    {{ cms:text header-ns2}}
   </div>
   <div class="nascholing-index">
     <div class="nascholing-image">
-      <img src="assets/vvpao-event.png" alt="Image of event" class="">
+      {{ cms:file fotons2, as: image, label: "Nascholing2" }}
     </div>
-    <div class="nascholing-data">
-      Test en sflkjalkj lkjlskdjf lkj
-      <br>
-      <br>
+    <div class="nascholing-data box-border">
+      {{ cms:wysiwyg text-ns2}}
       <% if current_user %>
         <div>
-          Download links
+          {{ cms:wysiwyg links-ns2 }}
         </div>
       <% else %>
         <div>
-          Leden kunnen hier handouts downloaden (na inlog)
+        {{ cms:text txt2-p}}
         </div>
       <% end %>
+    </div>
+  </div>
+</div>
+<div class="blok">
+  <div class="header2">
+    {{ cms:text header-ns6}}
+  </div>
+  <div class="nascholing-index">
+    <div class="nascholing-image">
+      {{ cms:file fotons6, as: image, label: "Nascholing6" }}
+    </div>
+    <div class="nascholing-data box-border"></div>
+  </div>
+</div>
+<div class="blok">
+  <div class="header2">
+    {{ cms:text header-ns7}}
+  </div>
+  <div class="nascholing-index">
+    <div class="nascholing-image">
+      {{ cms:file fotons7, as: image, label: "Nascholing7" }}
+    </div>
+    <div class="nascholing-data box-border">
+
     </div>
   </div>
 </div>
