@@ -131,21 +131,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def lidmaatschap
-    @texts = Text.all
-    @listitems = Listitem.all
-  end
-
-  def klachten
-    @texts = Text.all
-    @listitems = Listitem.all
-  end
-
-  def nieuws
-    @texts = Text.all
-    @listitems = Listitem.all
-  end
-
   def contact
     @texts = Text.all
     @listitems = Listitem.all
@@ -156,6 +141,10 @@ class PagesController < ApplicationController
     # UserMailer.application(@testmailuser).deliver_now
     UserMailer.test.deliver_now
     redirect_back(fallback_location: root_path)
+  end
+
+  def test
+
   end
 
   private

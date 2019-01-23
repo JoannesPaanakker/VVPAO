@@ -14,6 +14,10 @@
 @import "components/index";
 @import "pages/index";
 
+hr {
+  color: $base;
+}
+
 a {
   color: $base;
 }
