@@ -54,7 +54,7 @@ class PagesController < ApplicationController
     if @psychiaters.empty?
       @noresults = true
       @psychiater = User.new
-      @psychiater.last_name = "met deze expertise gevonden"
+      @psychiater.last_name = "die voldoet aan zoek criteria gevonden."
       @psychiater.first_name = "Geen psychiater"
     end
     get_markers

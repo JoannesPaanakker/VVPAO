@@ -114,8 +114,6 @@
   color: black !important;
 }
 
-
-
 .navbar-dropdown-menu:before {
   content: ' ';
   height: 10px;
@@ -145,18 +143,6 @@
 
 .dropdown:hover .dropdown-menu {
    display: block;
-}
-
-.dropdown-sub-menu {
-  display: none;
-}
-
-.dropdown-sub:hover .dropdown-sub-menu {
-   display: block;
-}
-
-.dropdown-sub-menu {
-  text-decoration: none;
 }
 
 @media screen and (min-width: 601px) {

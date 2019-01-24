@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if @members.empty?
       @noresults = true
       @member = User.new
-      @member.last_name = "met deze expertise gevonden"
+      @member.last_name = "die voldoet aan zoek criteria gevonden."
       @member.first_name = "Geen psychiater"
     end
     get_markers
