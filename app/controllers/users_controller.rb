@@ -95,9 +95,10 @@ class UsersController < ApplicationController
     if params[:search].present?
       @members = User.where(member: true)
         .and(User.where("expertise ILIKE ?", "%#{search_params}%"))
-        .sort_by{ |user| user.last_name }
+        .sort_by(&:last_name)
     else
-      @members = User.where(member: true).sort_by{ |user| user.last_name }
+      # @members = User.where(member: true).sort_by{ |user| user.last_name }
+      @members = User.where(member: true).sort_by(&:last_name)
     end
     render :index
   end
@@ -121,6 +122,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def search_params
     if params[:search].present?
       params.require(:search).permit(:last_name, :expertise_id, :expertise_name, :postalcode)

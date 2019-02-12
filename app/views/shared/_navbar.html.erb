@@ -113,7 +113,7 @@
   </div>
   <div class="navbar-right hidden-xs">
 
-    <% if user_signed_in? && current_user.member %>
+    <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-item" id="dropdown-hover">
         <div class="dropdown" >
@@ -165,7 +165,7 @@
     <% end %>
   </div>
   <div class="navbar-item hidden-sm hidden-md hidden-lg">
-    <% if user_signed_in? && current_user.member %>
+    <% if user_signed_in? %>
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle fa-size" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">

@@ -8,6 +8,7 @@ psql 10.5
 Google Maps javascript API:
 - geocode and map
 CMS and blog ( gem Comfortable Mexican Sofa)
+File services by active storage / AWS S3
 
 Heroku deploy
 

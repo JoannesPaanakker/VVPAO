@@ -1,2 +1,0 @@
-class Listitem < ApplicationRecord
-end

@@ -5,9 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :timeoutable
   belongs_to :expertise
   belongs_to :targetaudience
-  has_many :newsitems
-  has_many :usertrainings
-  has_many :trainings, through: :usertrainings
 
   after_commit :newuser, on: :create
 
